@@ -1,182 +1,176 @@
-import React, { useState } from 'react'
-import './Dashboard.css'
+import React from 'react'
 import imgUser from './assets/user.jpeg'
 import imgLogo from './assets/logo_fondtrans.png'
+import styled from "styled-components";
+import { IconName } from "react-icons/bs";
+import './Dashboard.css'
 
 const Dashboard = () => {
-    const [showSideBar, setShowSideBar] = useState(true);
-    let btn = document.querySelector("#btn")
-    let sidebar = document.querySelector(".sidebar")
-    let searchBtn = document.querySelector(".bx-search")
 
-    function onClick(){
-        setShowSideBar(!showSideBar);
-    }
+    return (
+        <SideBar>
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+            <DivRole class="logo">
+                <Logo src={imgLogo}/>
+                <Role>Enseignant</Role>
+            </DivRole>
 
-  return (
-    <>
-    <head>
-        <title>Side Bar</title>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
-    </head>
+            <ul className="nav_list">
 
-    <body>
-        {
-            showSideBar && (
-                <div class="sidebar">
-            <div class="logo_content">
-                <div class="logo">
-                    <div class="sideBarImgLogo">
-                        <img src={imgLogo} alt='' width="50" height="50"></img>
-                    </div>
-                    <div class="logo_name">Enseignant</div>
-                </div>
-
-                <i class='bx bx-menu' id='btn' onClick={onClick}></i>
-                <ul class="nav_list">
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-search' ></i>
-                            <input type="text" placeholder="Search..."></input>
-                        </a>
-                        {
-                            /*<span class="tooltip">Search</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-edit' ></i>
-                            <span class="links_name">Note</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Dashboard</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-been-here' ></i>
-                            <span class="links_name">Absence</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">User</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-time-five' ></i>
-                            <span class="links_name">Retard</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-file-blank' ></i>
-                            <span class="links_name">Document</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-file' ></i>
-                            <span class="links_name">Contrat</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-edit-alt' ></i>
-                            <span class="links_name">Mémo</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-chat' ></i>
-                            <span class="links_name">Annonce</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-group' ></i>
-                            <span class="links_name">Classe</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <i class='bx bx-cog' ></i>
-                            <span class="links_name">Setting</span>
-                        </a>
-                        {
-                            /*<span class="tooltip">Analytics</span>*/
-                        }
-                    </li>
-                </ul>
-                <div class="profile_content">
-                    <div class="profile">
-                        <div class="profile_details">
-                            <img src={imgUser} alt=''/>
-                            <div class="name_job">
-                                <div class="name">Robin</div>
-                                <div class="job">P.O Coding Factory</div>
-                            </div>
-                            <div>
-                                <i class='bx bx-log-out' id='log_out'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            )
-        }
-
-
-        <div class="home_content">
-            <div class="text">Note</div>
-            <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Points</th>
-                </tr>
-                <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Eve</td>
-                    <td>Jackson</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>Adam</td>
-                    <td>Johnson</td>
-                    <td>67</td>
-                </tr>
-            </table>
-        </div>
-    </body>
-
-
-
-        
-    </>
-  )
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-edit'></i>
+                        <span class="links_name">Note</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Dashboard</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-been-here'></i>
+                        <span class="links_name">Absence</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">User</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-time-five'></i>
+                        <span class="links_name">Retard</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-file-blank'></i>
+                        <span class="links_name">Document</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-file'></i>
+                        <span class="links_name">Contrat</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-edit-alt'></i>
+                        <span class="links_name">Mémo</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Annonce</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-group'></i>
+                        <span class="links_name">Classe</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bx-cog'></i>
+                        <span class="links_name">Setting</span>
+                    </a>
+                    {
+                        /*<span class="tooltip">Analytics</span>*/
+                    }
+                </li>
+            </ul>
+            <DivProfile class="profile_details">
+                <ImgProfile src={imgUser} alt=''/>
+                <DivUser class="name_job">
+                    <Name class="name">Robin</Name>
+                    <RoleUser class="job">P.O Coding Factory</RoleUser>
+                </DivUser>
+                <LogOut className='bx bx-log-out' id='log_out'></LogOut>
+            </DivProfile>
+        </SideBar>
+    );
 }
 
+const SideBar = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  background: #A9C1FF;
+  padding: 20px 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const DivRole = styled.div`
+    width: 100%;
+    display: flex;
+  flex-direction: column;
+    align-items: center;
+`;
+
+const Logo = styled.img`
+  height: 150px;
+  width: 150px;
+`;
+
+const Role = styled.div`
+  font-size: 20px;
+`;
+
+
+const DivProfile = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+`
+
+const ImgProfile = styled.img`
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 12px;
+`
+
+const DivUser = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`
+
+const Name = styled.div``
+
+const RoleUser = styled.div``
+
+const LogOut = styled.i`
+  font-size: 30px;
+  font-weight: lighter;
+  border-radius: 12px;
+`
 export default Dashboard

@@ -1,29 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
 .sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 240px;
-    background: #A9C1FF;
-    padding: 6px 14px;
-    transition: all 0.5s ease;
+
 }
 
 /*Side bar avec que logo*/
-.sidebar.active{ 
+.sidebar.active{
     width: 78px;
 }
 
@@ -197,7 +177,7 @@ body{
 .home_content{
     position: absolute;
     height: 100%;
-    width: calc(100%-240px);
+    width: calc(100% - 240px);
     left: 240px;
 }
 
@@ -213,7 +193,7 @@ table {
     width: 100%;
     border: 1px solid #ddd;
 }
-  
+
 th, td {
     text-align: left;
     padding: 16px;

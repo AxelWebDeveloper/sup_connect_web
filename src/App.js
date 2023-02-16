@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import Dashboard from './Dashboard';
+import LayoutWrapper from "./layoutWrapper";
 
 function App() {
   return (
-      <Dashboard />
+      <LayoutWrapper />
   );
 }
 
