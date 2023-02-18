@@ -1,9 +1,9 @@
 import './App.css';
-import LayoutWrapper from "./layoutWrapper";
+import Router from "../router";
 
 function App() {
   return (
-      <LayoutWrapper />
+      <Router />
   );
 }
 

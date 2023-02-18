@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LayoutWrapper from "./layoutWrapper";
-import Home from "./home";
+import LayoutWrapper from "./views/LayoutWrapper/layoutWrapper";
+import Home from "./views/Home/home";
 
 function Router() {
     return (
