@@ -1,0 +1,63 @@
+body {
+    background-color: #eeeeee ;
+}
+.DashboardNote {
+    background-color: white ;
+    margin: 2%;
+    width: 80%;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tableList{
+    width: 100%;
+}
+.listEleve {
+    font-size: 20px ;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3.5% ;
+    padding-top: 2%;
+}
+.tableNote {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+.listName {
+    display: flex;
+    width: 35% ;
+}
+.blockInput {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+.inputComment{
+    width: 30%;
+}
+.note {
+    width: 100px;
+    height: 25px;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
+}
+.commentaires {
+    width: 250px;
+    height: 50px;
+}
+.buttonValide{
+    display: flex;
+}
+.valide{
+    width: 350px;
+    height: 50px;
+    background-color: rgba(89, 95, 255, 1);
+    color: white;
+    font-size: 18px;
+    border: none;
+}
