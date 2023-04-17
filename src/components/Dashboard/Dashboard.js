@@ -2,7 +2,6 @@ import React from 'react'
 import imgUser from '../../assets/user.jpeg'
 import imgLogo from '../../assets/logo_fondtrans.png'
 import styled from "styled-components";
-import '../../Dashboard.css'
 import {FiEdit} from "react-icons/fi";
 import {BiBeenHere, BiChat, BiCog, BiTimeFive} from "react-icons/bi";
 import {
@@ -12,6 +11,7 @@ import {
 } from "react-icons/ai";
 import {FaFileContract} from "react-icons/fa";
 import {CiLogout} from "react-icons/ci";
+import {Link} from "react-router-dom";
 
 const Dashboard = () => {
 
@@ -23,21 +23,15 @@ const Dashboard = () => {
 
             <Menu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to={'/note'}>
                         <FiEdit/>
                         <TextItem>Note</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to={'/assiduite'}>
                         <BiBeenHere/>
-                        <TextItem>Absence</TextItem>
-                    </LinkItem>
-                </ItemMenu>
-                <ItemMenu>
-                    <LinkItem href='#'>
-                        <BiTimeFive/>
-                        <TextItem>Retard</TextItem>
+                        <TextItem>Assiduité</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
@@ -145,7 +139,7 @@ const ItemMenu = styled.li`
   }
 `;
 
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
   color: white;
   display: flex;
   align-items: center;
