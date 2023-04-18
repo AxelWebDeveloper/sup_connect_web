@@ -65,7 +65,7 @@ const Dashboard = () => {
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/setting'>
                         <BiCog />
                         <TextItem>Setting</TextItem>
                     </LinkItem>

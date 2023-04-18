@@ -8,11 +8,11 @@ const GlobalContainer = styled.div`
   height: 100vh;
 `;
 
-const ContainerHead = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100vw - 250px);
-  height: 50vh;
+  height: 100vh;
   margin: 10px;
   background-color: white;
   border-radius: 15px;
@@ -48,46 +48,46 @@ const TableData = styled.td`
   padding: 5px;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: calc(100vw - 250px);
-  height: 50vh;
-`;
-
-const LeftPanel = styled.div`
-  flex: 1;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const RightPanel = styled.div`
-  flex: 1;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
 const TitleBloc = styled.h2`
     text-align: center;
+`;
+
+const Btn = styled.button`
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgb(255, 255, 255);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #7299FE;
+  
+  &:hover {
+    color: #7299FE;
+    background-color: rgb(255, 255, 255);
+  }
 `;
 
 function Assiduite() {
     return (
         <GlobalContainer>
-            <ContainerHead>
-                <TitleBloc>Injustifié</TitleBloc><br/>
+            <Container>
+                <TitleBloc>Absence / Retard</TitleBloc><br/>
                 <TableContainer>
                     <thead>
                     <tr>
                         <TableHeader>Nom</TableHeader>
                         <TableHeader>Prénom</TableHeader>
-                        <TableHeader>Du</TableHeader>
-                        <TableHeader>Au</TableHeader>
-                        <TableHeader>Durée</TableHeader>
-                        <TableHeader>Motif</TableHeader>
-                        <TableHeaderMiss>Injustifiées</TableHeaderMiss>
+                        <TableHeader>Classe</TableHeader>
+                        <TableHeader>Total</TableHeader>
+                        <TableHeaderMiss>Injustifié</TableHeaderMiss>
+                        <TableHeader></TableHeader>
                         <TableHeader></TableHeader>
                     </tr>
                     </thead>
@@ -95,71 +95,59 @@ function Assiduite() {
                     <TableRow>
                         <TableData>LE GOFF</TableData>
                         <TableData>Océane</TableData>
-                        <TableData>10/01/2023</TableData>
-                        <TableData>13/01/2023</TableData>
+                        <TableData>L3 ALT Paris</TableData>
                         <TableData>28h00</TableData>
-                        <TableData>Maladie: AT (APP ou CPRO) ou CM (TP)</TableData>
-                        <TableData>02h00</TableData>
+                        <TableData>09h00</TableData>
                         <TableData>
-                            <button>relancer</button>
+                            <Btn type="button" relancer>
+                                relancer
+                            </Btn>
+                        </TableData>
+                        <TableData>
+                            <Btn type="button" i>
+                                i
+                            </Btn>
                         </TableData>
                     </TableRow>
                     <TableRow>
                         <TableData>DEMOREST</TableData>
                         <TableData>Axel</TableData>
-                        <TableData>04/01/2023</TableData>
-                        <TableData>06/01/2023</TableData>
+                        <TableData>L1 Cergy</TableData>
                         <TableData>21h00</TableData>
-                        <TableData>Maladie: AT (APP ou CPRO) ou CM (TP)</TableData>
-                        <TableData>02h00</TableData>
+                        <TableData>11h00</TableData>
                         <TableData>
-                            <button>relancer</button>
+                            <Btn type="button" relancer>
+                                relancer
+                            </Btn>
+                        </TableData>
+                        <TableData>
+                            <Btn type="button" i>
+                                i
+                            </Btn>
                         </TableData>
                     </TableRow>
                     <TableRow>
                         <TableData>HADDOURY</TableData>
                         <TableData>Walid</TableData>
-                        <TableData>21/11/2022</TableData>
-                        <TableData>21/11/2022</TableData>
+                        <TableData>L2 ALT Paris</TableData>
                         <TableData>03h30</TableData>
-                        <TableData>Maladie: AT (APP ou CPRO) ou CM (TP)</TableData>
                         <TableData>01h00</TableData>
                         <TableData>
-                            <button>relancer</button>
+                            <Btn type="button" relancer>
+                                relancer
+                            </Btn>
+                        </TableData>
+                        <TableData>
+                            <Btn type="button" i>
+                                i
+                            </Btn>
                         </TableData>
                     </TableRow>
 
                     </tbody>
                 </TableContainer>
-            </ContainerHead>
-
-            <Container>
-                <LeftPanel>
-                    <TitleBloc>Répartition cumulée</TitleBloc>
-                    <TableContainer>
-                        <thead>
-                        <tr>
-                            <TableHeader>Absences</TableHeader>
-                            <TableHeader>Justifiées</TableHeader>
-                            <TableHeaderMiss>Injustifiées</TableHeaderMiss>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <TableRow>
-                            <TableData>12h00</TableData>
-                            <TableData>10H00</TableData>
-                            <TableData>02h00</TableData>
-                        </TableRow>
-
-                        </tbody>
-                    </TableContainer>
-                </LeftPanel>
-
-                <RightPanel>
-                    <TitleBloc>Retard</TitleBloc>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec dui blandit, porta nibh quis, vehicula ipsum. Curabitur luctus orci eget tellus accumsan rhoncus. Fusce vel mauris vel neque pharetra consequat. Sed ac mi elit. Donec iaculis, libero quis pellentesque bibendum, erat lacus rhoncus nibh, vel blandit sapien metus sit amet felis.</p>
-                </RightPanel>
             </Container>
+
 
         </GlobalContainer>
     );
