@@ -20,14 +20,16 @@ const Container = styled.div`
 `;
 
 const TitleBloc = styled.h2`
-    text-align: center;
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 5%;
 `;
 
 const Home = () => {
     return (
         <GlobalContainer>
             <Container>
-                <TitleBloc>Home</TitleBloc>
+                <TitleBloc>Hello, Robin 👋</TitleBloc>
             </Container>
         </GlobalContainer>
     );
