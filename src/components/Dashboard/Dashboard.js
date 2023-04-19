@@ -2,7 +2,6 @@ import React from 'react'
 import imgUser from '../../assets/user.jpeg'
 import imgLogo from '../../assets/logo_fondtrans.png'
 import styled from "styled-components";
-import '../../Dashboard.css'
 import {FiEdit} from "react-icons/fi";
 import {BiBeenHere, BiChat, BiCog, BiTimeFive} from "react-icons/bi";
 import {
@@ -12,6 +11,7 @@ import {
 } from "react-icons/ai";
 import {FaFileContract} from "react-icons/fa";
 import {CiLogout} from "react-icons/ci";
+import {Link} from "react-router-dom";
 
 const Dashboard = () => {
 
@@ -19,25 +19,20 @@ const Dashboard = () => {
         <SideBar>
             <DivRole>
                 <Logo src={imgLogo}/>
+                <TextHead>SupConnect</TextHead>
             </DivRole>
 
             <Menu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to={'/note'}>
                         <FiEdit/>
                         <TextItem>Note</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to={'/assiduite'}>
                         <BiBeenHere/>
-                        <TextItem>Absence</TextItem>
-                    </LinkItem>
-                </ItemMenu>
-                <ItemMenu>
-                    <LinkItem href='#'>
-                        <BiTimeFive/>
-                        <TextItem>Retard</TextItem>
+                        <TextItem>Assiduité</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
@@ -71,7 +66,7 @@ const Dashboard = () => {
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/setting'>
                         <BiCog />
                         <TextItem>Setting</TextItem>
                     </LinkItem>
@@ -97,7 +92,7 @@ const SideBar = styled.div`
   width: 250px;
   height: 100%;
   box-sizing: border-box;
-  background: #A9C1FF;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,9 +109,10 @@ const DivRole = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 50px;
-  width: 50px;
-  background: white;
+  height: 55px;
+  width: 55px;
+  padding: 5px;
+  background: #eeeeee;
   border-radius: 25%;
 `;
 
@@ -130,7 +126,7 @@ const Menu = styled.ul`
 `;
 
 const ItemMenu = styled.li`
-  color: white;
+  color: black;
   position: relative;
   height: 50px;
   width: 100%;
@@ -139,23 +135,40 @@ const ItemMenu = styled.li`
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 20px;
+  font-weight: 500;
   &:hover {
-    background: #7C92DF;
+    background: #A9C1FF;
     border-radius: 12px;
+    font-weight: 600;
   }
 `;
 
-const LinkItem = styled.a`
-  color: white;
+const LinkItem = styled(Link)`
+  color: black;
   display: flex;
   align-items: center;
   text-decoration: none;
   border-radius: 12px;
   font-size: larger;
+  &:hover {
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+  }
+  &:active {
+    color: black;
+  }
 `
 
 const TextItem = styled.span`
-    margin-left: 20px;
+  margin-left: 20px;
+`;
+
+const TextHead = styled.span`
+  margin-left: 10px;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
 `;
 
 const DivProfile = styled.div`
@@ -167,8 +180,8 @@ const DivProfile = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background: #7C92DF;
-  color: white;
+  background: #eeeeee;
+  color: red;
 `;
 
 const ImgProfile = styled.img`
@@ -183,7 +196,7 @@ const DivUser = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  color: white;
+  color: black;
 `
 
 const Name = styled.div`
