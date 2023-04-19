@@ -48,8 +48,6 @@ const ListItem = styled("li")`
 
 const options = ["L1 Paris", "L2 Paris", "L3 Paris"];
 
-
-
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;

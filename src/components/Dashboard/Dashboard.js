@@ -19,6 +19,7 @@ const Dashboard = () => {
         <SideBar>
             <DivRole>
                 <Logo src={imgLogo}/>
+                <TextHead>SupConnect</TextHead>
             </DivRole>
 
             <Menu>
@@ -91,7 +92,7 @@ const SideBar = styled.div`
   width: 250px;
   height: 100%;
   box-sizing: border-box;
-  background: #A9C1FF;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,9 +109,10 @@ const DivRole = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 50px;
-  width: 50px;
-  background: white;
+  height: 55px;
+  width: 55px;
+  padding: 5px;
+  background: #eeeeee;
   border-radius: 25%;
 `;
 
@@ -124,7 +126,7 @@ const Menu = styled.ul`
 `;
 
 const ItemMenu = styled.li`
-  color: white;
+  color: black;
   position: relative;
   height: 50px;
   width: 100%;
@@ -133,23 +135,40 @@ const ItemMenu = styled.li`
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 20px;
+  font-weight: 500;
   &:hover {
-    background: #7C92DF;
+    background: #A9C1FF;
     border-radius: 12px;
+    font-weight: 600;
   }
 `;
 
 const LinkItem = styled(Link)`
-  color: white;
+  color: black;
   display: flex;
   align-items: center;
   text-decoration: none;
   border-radius: 12px;
   font-size: larger;
+  &:hover {
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+  }
+  &:active {
+    color: black;
+  }
 `
 
 const TextItem = styled.span`
-    margin-left: 20px;
+  margin-left: 20px;
+`;
+
+const TextHead = styled.span`
+  margin-left: 10px;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
 `;
 
 const DivProfile = styled.div`
@@ -161,8 +180,8 @@ const DivProfile = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background: #7C92DF;
-  color: white;
+  background: #eeeeee;
+  color: red;
 `;
 
 const ImgProfile = styled.img`
@@ -177,7 +196,7 @@ const DivUser = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  color: white;
+  color: black;
 `
 
 const Name = styled.div`

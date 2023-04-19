@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import Popup from "../../components/Popup";
+import { useState } from "react";
 
 const GlobalContainer = styled.div`
   display: flex;
@@ -32,9 +34,8 @@ const TableHeader = styled.th`
 `;
 
 const TableHeaderMiss = styled.th`
-  background-color: #E37878;
+  color: #E37878;
   border-radius: 30px;
-  color: white;
   padding: 10px;
 `;
 
@@ -51,6 +52,9 @@ const TableData = styled.td`
 const TitleBloc = styled.h2`
     text-align: center;
 `;
+const TitlePopup = styled.h3`
+    text-align: center;
+`;
 
 const Btn = styled.button`
   display: inline-block;
@@ -61,7 +65,7 @@ const Btn = styled.button`
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   color: #ffffff;
   text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
   text-align: center;
@@ -75,6 +79,8 @@ const Btn = styled.button`
 `;
 
 function Assiduite() {
+    const [buttonPopup, setButtonPopup] = useState(false);
+
     return (
         <GlobalContainer>
             <Container>
@@ -104,9 +110,23 @@ function Assiduite() {
                             </Btn>
                         </TableData>
                         <TableData>
-                            <Btn type="button" i>
-                                i
+                            <Btn onClick={() => setButtonPopup(true)} type="button">
+                                détails
                             </Btn>
+                            <div>
+                                <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                    <TitlePopup>LE GOFF Océane</TitlePopup><br/>
+                                    <p>Absences : 28h00</p>
+                                    <p>Retards : 00h00</p>
+                                    <p>Départs anticipés : 00h00</p>
+                                    <p>Justifiées : 19h00</p>
+                                    <p>Injustifiées : 09h00</p>
+                                    <p>Du : 10/01/2023</p>
+                                    <p>Au : 13/01/2023</p>
+                                    <p>Du : 12/03/2023</p>
+                                    <p>Au : 13/03/2023</p>
+                                </Popup>
+                            </div>
                         </TableData>
                     </TableRow>
                     <TableRow>
@@ -121,8 +141,8 @@ function Assiduite() {
                             </Btn>
                         </TableData>
                         <TableData>
-                            <Btn type="button" i>
-                                i
+                            <Btn onClick={() => setButtonPopup(true)} type="button">
+                                détails
                             </Btn>
                         </TableData>
                     </TableRow>
@@ -138,8 +158,8 @@ function Assiduite() {
                             </Btn>
                         </TableData>
                         <TableData>
-                            <Btn type="button" i>
-                                i
+                            <Btn onClick={() => setButtonPopup(true)} type="button">
+                                détails
                             </Btn>
                         </TableData>
                     </TableRow>
