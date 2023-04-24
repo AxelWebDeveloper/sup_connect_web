@@ -6,6 +6,7 @@ const Main = styled("div")`
   font-family: sans-serif;
   background: #f0f0f0;
   height: 100vh;
+  background-color: #eeeeee;
 `;
 
 const DropDownContainer = styled("div")`

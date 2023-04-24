@@ -6,6 +6,7 @@ const GlobalContainer = styled.div`
   flex-direction: column;
   width: calc(100vw - 250px);
   height: 100vh;
+  background-color: #eeeeee;
 `;
 
 const Container = styled.div`

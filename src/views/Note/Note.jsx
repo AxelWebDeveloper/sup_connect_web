@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Popup from "../../components/Popup";
+import PopupAssiduite from "../../components/PopupAssiduite";
 
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100vw - 250px);
   height: 100vh;
+  background-color: #eeeeee;
 `;
 
 const Container = styled.div`

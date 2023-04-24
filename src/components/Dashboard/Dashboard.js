@@ -19,7 +19,9 @@ const Dashboard = () => {
         <SideBar>
             <DivRole>
                 <Logo src={imgLogo}/>
-                <TextHead>SupConnect</TextHead>
+                <LinkItem to={'/'}>
+                    <TextHead>SupConnect</TextHead>
+                </LinkItem>
             </DivRole>
 
             <Menu>
@@ -36,31 +38,25 @@ const Dashboard = () => {
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/document'>
                         <AiOutlineFile />
                         <TextItem>Document</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
-                        <FaFileContract />
-                        <TextItem>Contrat</TextItem>
-                    </LinkItem>
-                </ItemMenu>
-                <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/memo'>
                         <AiOutlineEdit />
                         <TextItem>Mémo</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/annonce'>
                         <BiChat />
                         <TextItem>Annonce</TextItem>
                     </LinkItem>
                 </ItemMenu>
                 <ItemMenu>
-                    <LinkItem href='#'>
+                    <LinkItem to='/classe'>
                         <AiOutlineUsergroupDelete />
                         <TextItem>Classe</TextItem>
                     </LinkItem>
@@ -92,10 +88,10 @@ const SideBar = styled.div`
   width: 250px;
   height: 100%;
   box-sizing: border-box;
-  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #A9C1FF;
 `;
 
 const DivRole = styled.div`
@@ -112,7 +108,7 @@ const Logo = styled.img`
   height: 55px;
   width: 55px;
   padding: 5px;
-  background: #eeeeee;
+  background: white;
   border-radius: 25%;
 `;
 
@@ -126,7 +122,6 @@ const Menu = styled.ul`
 `;
 
 const ItemMenu = styled.li`
-  color: black;
   position: relative;
   height: 50px;
   width: 100%;
@@ -137,14 +132,14 @@ const ItemMenu = styled.li`
   margin-bottom: 20px;
   font-weight: 500;
   &:hover {
-    background: #A9C1FF;
+    background: #7299FE;
     border-radius: 12px;
     font-weight: 600;
   }
 `;
 
 const LinkItem = styled(Link)`
-  color: black;
+  color: white;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -152,8 +147,8 @@ const LinkItem = styled(Link)`
   font-size: larger;
   &:hover {
     border-radius: 12px;
-    color: white;
     font-weight: 600;
+    color: #white;
   }
   &:active {
     color: black;
@@ -166,7 +161,7 @@ const TextItem = styled.span`
 
 const TextHead = styled.span`
   margin-left: 10px;
-  color: black;
+  color: white;
   font-weight: 700;
   font-size: 20px;
 `;
@@ -182,6 +177,7 @@ const DivProfile = styled.div`
   align-items: center;
   background: #eeeeee;
   color: red;
+  border-radius: 10% 30% 0% 0%;
 `;
 
 const ImgProfile = styled.img`
@@ -197,6 +193,7 @@ const DivUser = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   color: black;
+  text-align: center;
 `
 
 const Name = styled.div`
