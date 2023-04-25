@@ -1,7 +1,7 @@
 import React from 'react';
 import './Popup.css'
 
-const Popup = (props) => {
+const PopupClasse = (props) => {
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
@@ -12,4 +12,4 @@ const Popup = (props) => {
     ): "";
 };
 
-export default Popup;
+export default PopupClasse;

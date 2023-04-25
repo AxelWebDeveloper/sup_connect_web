@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Popup from "../../components/Popup";
+import PopupAssiduite from "../../components/PopupAssiduite";
 import { useState } from "react";
 
 const GlobalContainer = styled.div`
@@ -8,6 +8,7 @@ const GlobalContainer = styled.div`
   flex-direction: column;
   width: calc(100vw - 250px);
   height: 100vh;
+  background-color: #eeeeee;
 `;
 
 const Container = styled.div`
@@ -114,7 +115,7 @@ function Assiduite() {
                                 détails
                             </Btn>
                             <div>
-                                <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                <PopupAssiduite trigger={buttonPopup} setTrigger={setButtonPopup}>
                                     <TitlePopup>LE GOFF Océane</TitlePopup><br/>
                                     <p>Absences : 28h00</p>
                                     <p>Retards : 00h00</p>
@@ -125,7 +126,7 @@ function Assiduite() {
                                     <p>Au : 13/01/2023</p>
                                     <p>Du : 12/03/2023</p>
                                     <p>Au : 13/03/2023</p>
-                                </Popup>
+                                </PopupAssiduite>
                             </div>
                         </TableData>
                     </TableRow>
