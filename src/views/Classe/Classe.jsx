@@ -1,186 +1,163 @@
-import React from 'react';
-import styled from 'styled-components'
-import PopupClasse from "../../components/PopupClasse";
-import { useState } from "react";
-import PopupAssiduite from "../../components/PopupAssiduite";
+import React, {useEffect, useState} from 'react';
+import * as styled from './Classe.styled'
+import {MdAdd} from 'react-icons/md';
+import axios from "axios";
+import Table from "./components/Table/Table";
 
-const GlobalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const TableContainer = styled.table`
-  border-collapse: separate;
-  width: 100%;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const TableHeader = styled.th`
-  color: black;
-  padding: 10px;
-`;
-
-const TableRow = styled.tr`
-  &:hover {
-    background-color: #F5F5F5;
-  }
-`;
-
-const TableData = styled.td`
-  padding: 5px;
-`;
-
-const TitleBloc = styled.h2`
-  text-align: center;
-`;
-const TitlePopup = styled.h3`
-  text-align: center;
-`;
-
-const Btn = styled.button`
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 0 0.1em 0.1em 0;
-  border: 0.16em solid rgb(255, 255, 255);
-  border-radius: 2em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
-  text-align: center;
-  transition: all 0.2s;
-  background-color: #7299FE;
-
-  &:hover {
-    color: #7299FE;
-    background-color: rgb(255, 255, 255);
-  }
-`;
-
-function Classe() {
+const Classe = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [listClasses, setListClasses] = useState([]);
+    const [showStudents, setShowStudents] = useState(false);
+
+    useEffect(() => {
+        const getClasses = async () => {
+            const { data } = await axios.get('http://localhost:3000/class/school/1');
+            setListClasses(data);
+        }
+
+        getClasses();
+    }, [])
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setShowStudents(!showStudents);
+    };
+
+    const students = [
+        { nom: 'Dupont', prenom: 'Jean', age: 12, classe: '6ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+        { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
+    ];
+
 
     return (
-        <GlobalContainer>
-            <Container>
-                <TitleBloc>Classes</TitleBloc><br/>
-                <TableContainer>
-                    <thead>
-                    <tr>
-                        <TableHeader>Classe</TableHeader>
-                        <TableHeader>Élèves</TableHeader>
-                        <TableHeader></TableHeader>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <TableRow>
-                        <TableData>L3 ALT</TableData>
-                        <TableData>8</TableData> {/*tab.length*/}
-                        <TableData>
-                            <Btn onClick={() => setButtonPopup(true)} type="button">
-                                détails
-                            </Btn>
-                            <div>
-                                <PopupClasse trigger={buttonPopup} setTrigger={setButtonPopup}>
-                                    <TitlePopup>L3 ALT</TitlePopup><br/>
+        <styled.Container>
+            { showStudents && (
+                <div style={{ marginBottom: '20px', marginLeft: '20px' }}>
+                    <styled.AddStudentButton><MdAdd style={{ marginRight: '2px', marginBottom: '2.5px' }} size={15} /> Ajouter un élève</styled.AddStudentButton>
+                </div>
+            )}
+            <styled.ListClasses>
+                {listClasses.map((item, index) => {
+                    return (
+                        <styled.CardClass key={index}>
+                            <styled.CardClassHead />
+                            <styled.CardClassBody>
+                                <div>
+                                    <h3>{item.name}</h3>
+                                    <p>20 élèves</p>
+                                </div>
+                                <styled.StudentsDetails onClick={handleClick}>Gestion des élèves</styled.StudentsDetails>
+                            </styled.CardClassBody>
+                        </styled.CardClass>
+                    )
+                })}
+            </styled.ListClasses>
+            {/*<styled.TableContainer>
+                <Table students={students} />
+            </styled.TableContainer>*/}
+            {/*<styled.TitleBloc>Classes</styled.TitleBloc><br/>
+            <styled.TableContainer>
+                <thead>
+                <tr>
+                    <styled.TableHeader>Classe</styled.TableHeader>
+                    <styled.TableHeader>Élèves</styled.TableHeader>
+                    <styled.TableHeader></styled.TableHeader>
+                </tr>
+                </thead>
+                <tbody>
+                <styled.TableRow>
+                    <styled.TableData>L3 ALT</styled.TableData>
+                    <styled.TableData>8</styled.TableData>
+                    <styled.TableData>
+                        <styled.Btn onClick={() => setButtonPopup(true)} type="button">
+                            détails
+                        </styled.Btn>
+                        <div>
+                            <PopupClasse trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                <styled.TitlePopup>L3 ALT</styled.TitlePopup><br/>
 
-                                    <TableContainer>
-                                        <thead>
-                                        <tr>
-                                            <TableHeader>Nom</TableHeader>
-                                            <TableHeader>Prénom</TableHeader>
-                                            <TableHeader>Moy</TableHeader>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <TableRow>
-                                            <TableData>LE GOFF</TableData>
-                                            <TableData>Océane</TableData>
-                                            <TableData>17</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>DEMOREST</TableData>
-                                            <TableData>Axel</TableData>
-                                            <TableData>14</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>HADDOURY</TableData>
-                                            <TableData>Walid</TableData>
-                                            <TableData>16</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>REBRZB</TableData>
-                                            <TableData>Rberb</TableData>
-                                            <TableData>12</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>EJVRIVR</TableData>
-                                            <TableData>Eivur</TableData>
-                                            <TableData>17</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>TGTGV</TableData>
-                                            <TableData>Efoif</TableData>
-                                            <TableData>20</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>AKFO</TableData>
-                                            <TableData>Btyjbj</TableData>
-                                            <TableData>12</TableData>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableData>SPDKF</TableData>
-                                            <TableData>Cnjrg</TableData>
-                                            <TableData>09</TableData>
-                                        </TableRow>
-                                        </tbody>
-                                    </TableContainer>
-                                </PopupClasse>
-                            </div>
-                        </TableData>
-                    </TableRow>
-                    <TableRow>
-                        <TableData>L2 ALT</TableData>
-                        <TableData>32</TableData>
-                        <TableData>
-                            <Btn onClick={() => setButtonPopup(true)} type="button">
-                                détails
-                            </Btn>
-                        </TableData>
-                    </TableRow>
-                    <TableRow>
-                        <TableData>L2 TP</TableData>
-                        <TableData>32</TableData>
-                        <TableData>
-                            <Btn onClick={() => setButtonPopup(true)} type="button">
-                                détails
-                            </Btn>
-                        </TableData>
-                    </TableRow>
+                                <styled.TableContainer>
+                                    <thead>
+                                    <tr>
+                                        <styled.TableHeader>Nom</styled.TableHeader>
+                                        <styled.TableHeader>Prénom</styled.TableHeader>
+                                        <styled.TableHeader>Moy</styled.TableHeader>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <styled.TableRow>
+                                        <styled.TableData>LE GOFF</styled.TableData>
+                                        <styled.TableData>Océane</styled.TableData>
+                                        <styled.TableData>17</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>Axel</styled.TableData>
+                                        <styled.TableData>DEMOREST</styled.TableData>
+                                        <styled.TableData>14</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>HADDOURY</styled.TableData>
+                                        <styled.TableData>Walid</styled.TableData>
+                                        <styled.TableData>16</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>REBRZB</styled.TableData>
+                                        <styled.TableData>Rberb</styled.TableData>
+                                        <styled.TableData>12</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>EJVRIVR</styled.TableData>
+                                        <styled.TableData>Eivur</styled.TableData>
+                                        <styled.TableData>17</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>TGTGV</styled.TableData>
+                                        <styled.TableData>Efoif</styled.TableData>
+                                        <styled.TableData>20</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>AKFO</styled.TableData>
+                                        <styled.TableData>Btyjbj</styled.TableData>
+                                        <styled.TableData>12</styled.TableData>
+                                    </styled.TableRow>
+                                    <styled.TableRow>
+                                        <styled.TableData>SPDKF</styled.TableData>
+                                        <styled.TableData>Cnjrg</styled.TableData>
+                                        <styled.TableData>09</styled.TableData>
+                                    </styled.TableRow>
+                                    </tbody>
+                                </styled.TableContainer>
+                            </PopupClasse>
+                        </div>
+                    </styled.TableData>
+                </styled.TableRow>
+                <styled.TableRow>
+                    <styled.TableData>L2 ALT</styled.TableData>
+                    <styled.TableData>32</styled.TableData>
+                    <styled.TableData>
+                        <styled.Btn onClick={() => setButtonPopup(true)} type="button">
+                            détails
+                        </styled.Btn>
+                    </styled.TableData>
+                </styled.TableRow>
+                <styled.TableRow>
+                    <styled.TableData>L2 TP</styled.TableData>
+                    <styled.TableData>32</styled.TableData>
+                    <styled.TableData>
+                        <styled.Btn onClick={() => setButtonPopup(true)} type="button">
+                            détails
+                        </styled.Btn>
+                    </styled.TableData>
+                </styled.TableRow>
 
-                    </tbody>
-                </TableContainer>
-            </Container>
-
-
-        </GlobalContainer>
+                </tbody>
+            </styled.TableContainer>*/}
+        </styled.Container>
     );
 }
 

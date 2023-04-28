@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import Dashboard from "../../components/Dashboard/Dashboard";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const LayoutWrapper = ({children}) => {
     return (
         <Body>
-            <Dashboard></Dashboard>
+            <Sidebar></Sidebar>
             {children}
         </Body>
     );

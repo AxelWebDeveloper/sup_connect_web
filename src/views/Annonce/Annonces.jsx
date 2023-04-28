@@ -86,6 +86,13 @@ const Input = styled.input`
   }
 `;
 
+/**
+ * Gestion des annonces
+ * @param placeholder
+ * @param onChange
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Annonce = ({ placeholder, onChange }) => {
     return (
         <GlobalContainer>
