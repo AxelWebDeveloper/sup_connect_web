@@ -2,51 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import { useState } from "react";
 
-const GlobalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const TableContainer = styled.table`
-  border-collapse: separate;
-  width: 100%;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const TableHeader = styled.th`
-  color: black;
-  padding: 10px;
-`;
-
-const TableRow = styled.tr`
-  &:hover {
-    background-color: #F5F5F5;
-  }
-`;
-
-const TableData = styled.td`
-  padding: 5px;
-`;
-
-const TitleBloc = styled.h2`
-  text-align: center;
-`;
-
 /**
  * Gestion des documents des élèves (bulletins, certificats, ect...)
  * @returns {JSX.Element}
@@ -95,5 +50,50 @@ function Document() {
         </GlobalContainer>
     );
 }
+
+const GlobalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  background-color: #eeeeee;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  margin: 10px;
+  background-color: white;
+  border-radius: 15px;
+`;
+
+const TableContainer = styled.table`
+  border-collapse: separate;
+  width: 100%;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const TableHeader = styled.th`
+  color: black;
+  padding: 10px;
+`;
+
+const TableRow = styled.tr`
+  &:hover {
+    background-color: #F5F5F5;
+  }
+`;
+
+const TableData = styled.td`
+  padding: 5px;
+`;
+
+const TitleBloc = styled.h2`
+  text-align: center;
+`;
 
 export default Document;

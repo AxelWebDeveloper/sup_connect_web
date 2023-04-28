@@ -1,37 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const GlobalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const TitleBloc = styled.h2`
-    text-align: center;
-`;
-
-const TitleSet = styled.h3`
-    margin-left: 3%;
-  margin-bottom: 0px;
-`;
-
-const Txt = styled.p`
-    margin-left: 5%;
-`;
-
 /**
  * Gestion paramètres User
  * @returns {JSX.Element}
@@ -63,5 +32,37 @@ function Setting() {
         </GlobalContainer>
     );
 }
+
+
+const GlobalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  background-color: #eeeeee;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  margin: 10px;
+  background-color: white;
+  border-radius: 15px;
+`;
+
+const TitleBloc = styled.h2`
+    text-align: center;
+`;
+
+const TitleSet = styled.h3`
+    margin-left: 3%;
+  margin-bottom: 0px;
+`;
+
+const Txt = styled.p`
+    margin-left: 5%;
+`;
 
 export default Setting;

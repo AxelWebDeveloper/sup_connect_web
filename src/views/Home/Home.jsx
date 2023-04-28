@@ -1,92 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-const GlobalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const DashboardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-`;
-
-const Title = styled.h1`
-  font-size: 36px;
-  margin-bottom: 20px;
-`;
-
-const CardContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const Card = styled.div`
-  background-color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 20px;
-  flex: 1;
-  margin-right: 20px;
-
-  @media (max-width: 768px) {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-`;
-
-const CardTitle = styled.h2`
-  font-size: 24px;
-  margin-bottom: 10px;
-`;
-
-const CardText = styled.p`
-  font-size: 16px;
-  margin-bottom: 10px;
-`;
-
-const TitleBloc = styled.h2`
-  text-align: left;
-  margin-left: 5%;
-  margin-top: 5%;
-`;
-
-const CalendarWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const CalendarDay = styled.div`
-  width: 14.28%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  background-color: ${({ isToday }) => (isToday ? "#f8f8f8" : "transparent")};
-  font-weight: ${({ isToday }) => (isToday ? "bold" : "normal")};
-`;
-
 /**
  * Dashboard
  * @returns {JSX.Element}
@@ -194,5 +108,91 @@ const Home = () => {
         </>
     );
 };
+
+const GlobalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  background-color: #eeeeee;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  background-color: white;
+  border-radius: 15px;
+`;
+
+const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
+
+const Title = styled.h1`
+  font-size: 36px;
+  margin-bottom: 20px;
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Card = styled.div`
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  flex: 1;
+  margin-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+`;
+
+const CardTitle = styled.h2`
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
+
+const CardText = styled.p`
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
+
+const TitleBloc = styled.h2`
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 5%;
+`;
+
+const CalendarWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const CalendarDay = styled.div`
+  width: 14.28%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  background-color: ${({ isToday }) => (isToday ? "#f8f8f8" : "transparent")};
+  font-weight: ${({ isToday }) => (isToday ? "bold" : "normal")};
+`;
 
 export default Home;

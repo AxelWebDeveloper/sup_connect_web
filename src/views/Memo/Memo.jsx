@@ -1,6 +1,45 @@
 import React from 'react';
 import styled from 'styled-components'
 
+/**
+ * Bloc-Note -> Ajout et gestion des mémo
+ * @param placeholder
+ * @param onChange
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Memo = ({ placeholder, onChange }) => {
+    return (
+        <GlobalContainer>
+            <Container>
+                <TitleBloc>Memo</TitleBloc><br/>
+
+                <Bloc>
+                    <InputTitre
+                        type="text"
+                        placeholder="Titre de la note"
+                        onChange={onChange}
+                    />
+                </Bloc>
+
+                <Bloc>
+                    <Input
+                        type="text"
+                        placeholder="J'ajoute une note"
+                        onChange={onChange}
+                    />
+                </Bloc>
+
+                <Bloc2>
+                    <Btn>
+                        Ajouter
+                    </Btn>
+                </Bloc2>
+            </Container>
+        </GlobalContainer>
+    );
+}
+
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -85,43 +124,5 @@ const Input = styled.input`
     border: 3px solid #7399FE;
   }
 `;
-/**
- * Bloc-Note -> Ajout et gestion des mémo
- * @param placeholder
- * @param onChange
- * @returns {JSX.Element}
- * @constructor
- */
-const Memo = ({ placeholder, onChange }) => {
-    return (
-        <GlobalContainer>
-            <Container>
-                <TitleBloc>Memo</TitleBloc><br/>
-
-                <Bloc>
-                    <InputTitre
-                        type="text"
-                        placeholder="Titre de la note"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc>
-                    <Input
-                        type="text"
-                        placeholder="J'ajoute une note"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc2>
-                    <Btn>
-                        Ajouter
-                    </Btn>
-                </Bloc2>
-            </Container>
-        </GlobalContainer>
-    );
-}
 
 export default Memo;

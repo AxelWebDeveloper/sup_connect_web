@@ -166,8 +166,8 @@ const LogOut = styled.button`
   align-items: center;
   cursor: pointer;
   justify-content: space-evenly;
-  background-color: rgba(63, 70, 236, 0.8);
-  border: 1px solid rgb(40, 46, 178);
+  background-color: rgba(78, 84, 238, 0.8);
+  border: none;
   padding: 15px 20px;
   border-radius: 10px;
   width: 80%;
@@ -176,7 +176,7 @@ const LogOut = styled.button`
   font-size: 15.5px;
 
   &:hover {
-    background-color: rgba(78, 84, 238, 0.8);
+    background-color: #AAC1FF;
   }
 `;
 
@@ -187,105 +187,4 @@ const Footer = styled.div`
   padding-bottom: 20px;
 `;
 
-const DivRole = styled.div`
-  margin-top: 20px;
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
-const Menu = styled.ul`
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-`;
-
-const ItemMenu = styled.li`
-  position: relative;
-  height: 50px;
-  width: 100%;
-  list-style: none;
-  line-height: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 20px;
-  font-weight: 500;
-  &:hover {
-    background: #7299FE;
-    border-radius: 12px;
-    font-weight: 600;
-  }
-`;
-
-const LinkItem = styled(Link)`
-  color: white;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: larger;
-  &:hover {
-    border-radius: 12px;
-    font-weight: 600;
-    color: white;
-  }
-  &:active {
-    color: black;
-  }
-`
-
-const TextItem = styled.span`
-  margin-left: 20px;
-`;
-
-const TextHead = styled.span`
-  margin-left: 10px;
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-`;
-
-const DivProfile = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 75px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  background: #eeeeee;
-  color: red;
-  border-radius: 10% 30% 0% 0%;
-`;
-
-const ImgProfile = styled.img`
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border-radius: 12px;
-`
-
-const DivUser = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  color: black;
-  text-align: center;
-`
-
-const Name = styled.div`
-    font-size: large;
-`
-
-const RoleUser = styled.div`
-    font-size: small;
-`;
 export default Sidebar
