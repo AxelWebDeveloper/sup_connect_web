@@ -144,25 +144,25 @@ const Home = () => {
                 <DashboardContainer>
                     <CardContainer>
                         <Card style={{background:"#CAA9FF"}}>
-                            <CardText>68 %</CardText>
-                            <CardTitle>Grammar</CardTitle>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
                         </Card>
                         <Card style={{background:"#A9C1FF"}}>
-                            <CardText>84 %</CardText>
-                            <CardTitle>Listenning</CardTitle>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
                         </Card>
                         <Card style={{background:"#FFF6C7"}}>
-                            <CardText>87 %</CardText>
-                            <CardTitle>Speaking</CardTitle>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
                         </Card>
                     </CardContainer>
                     <CardContainer>
                         <Card style={{background:"#F9DEC5"}}>
-                            <CardTitle>Progress</CardTitle>
+                            <CardTitle>Lorem ipsum</CardTitle>
                             <CardText>Aucun événement récent</CardText>
                         </Card>
                         <Card style={{background:"#F9C5C5"}}>
-                            <CardTitle>Blakrgvrjrj</CardTitle>
+                            <CardTitle>Lorem ipsum</CardTitle>
                             <CardText>Aucun événement récent</CardText>
                         </Card>
                     </CardContainer>
@@ -170,7 +170,7 @@ const Home = () => {
                         <>
                             {/*
                             <h1>{monthNames[today.getMonth()]}</h1>
-                            */}
+
                             <CalendarWrapper>
                                 {days.map((day, index) => (
                                     <CalendarDay
@@ -185,6 +185,7 @@ const Home = () => {
                             {selectedDate && (
                                 <p>Selected date: {selectedDate.toDateString()}</p>
                             )}
+                            */}
                         </>
                     </CardContainer>
                 </DashboardContainer>

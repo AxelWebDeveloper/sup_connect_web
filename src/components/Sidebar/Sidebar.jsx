@@ -22,7 +22,6 @@ import {
  * @constructor
  */
 const Sidebar = () => {
-
     return (
         <SideBarContainer>
             <StickyContainer>
@@ -46,31 +45,31 @@ const Sidebar = () => {
                     </Item>
                     <Item>
                         <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/assiduite">
+                        <NavLink to="/">
                             Retards et absences
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><IoNewspaperOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/note">
+                        <NavLink to="/">
                             Note
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/document">
+                        <NavLink to="/">
                             Documents
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/memo">
+                        <NavLink to="/">
                             Memo
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/setting">
+                        <NavLink to="/">
                             Paramètres
                         </NavLink>
                     </Item>
@@ -89,7 +88,7 @@ const Sidebar = () => {
 const SideBarContainer = styled.div`
   width: 270px;
   z-index: 1;
-  background-color: rgba(33, 42, 255, 0.75);
+  background-color: #7299FE;
   position: fixed;
   left: 0;
   height: 100%;
@@ -136,9 +135,11 @@ const Item = styled.li`
   padding: 25px 0;
   margin: 0;
   cursor: pointer;
-
   &:hover {
-    background-color: rgba(33, 42, 255, 0.20);
+    font-weight: 600;
+    background-color: #A9C1FF;
+    border-radius: 15px;
+    padding: 1em;
   }
 `;
 
