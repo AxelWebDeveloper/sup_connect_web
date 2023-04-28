@@ -4,6 +4,11 @@ import {MdAdd} from 'react-icons/md';
 import axios from "axios";
 import Table from "./components/Table/Table";
 
+/**
+ * Listes des classes ainsi que les élèves de chaque classe
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Classe = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [listClasses, setListClasses] = useState([]);

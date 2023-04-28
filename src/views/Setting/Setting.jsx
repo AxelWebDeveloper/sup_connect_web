@@ -1,6 +1,39 @@
 import React from 'react';
 import styled from 'styled-components'
 
+/**
+ * Gestion paramètres User
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function Setting() {
+    return (
+        <GlobalContainer>
+            <Container>
+                <TitleBloc>Paramètres utilisateur</TitleBloc><br/>
+
+                <TitleSet>Détails du profil</TitleSet><br/>
+                <Txt>
+                    <p>Identifiant : Robin</p>
+                    <p>Mot de passe : <button>modifier</button> </p>
+                    <p>Première connexion : 24/08/2020</p>
+                    <p>Dernière connexion : 17/04/2023</p>
+                </Txt>
+
+                <TitleSet>Paramètres personnels</TitleSet><br/>
+                <Txt>
+                    <p>LoreumIpseum : LoreumIpseum</p>
+                    <p>LoreumIpseum : LoreumIpseum</p>
+                    <p>LoreumIpseum : LoreumIpseum</p>
+                    <p>LoreumIpseum : LoreumIpseum</p>
+                </Txt>
+
+            </Container>
+        </GlobalContainer>
+    );
+}
+
+
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,32 +64,5 @@ const TitleSet = styled.h3`
 const Txt = styled.p`
     margin-left: 5%;
 `;
-
-function Setting() {
-    return (
-        <GlobalContainer>
-            <Container>
-                <TitleBloc>Paramètres utilisateur</TitleBloc><br/>
-
-                <TitleSet>Détails du profil</TitleSet><br/>
-                <Txt>
-                    <p>Identifiant : Robin</p>
-                    <p>Mot de passe : <button>modifier</button> </p>
-                    <p>Première connexion : 24/08/2020</p>
-                    <p>Dernière connexion : 17/04/2023</p>
-                </Txt>
-
-                <TitleSet>Paramètres personnels</TitleSet><br/>
-                <Txt>
-                    <p>LoreumIpseum : LoreumIpseum</p>
-                    <p>LoreumIpseum : LoreumIpseum</p>
-                    <p>LoreumIpseum : LoreumIpseum</p>
-                    <p>LoreumIpseum : LoreumIpseum</p>
-                </Txt>
-
-            </Container>
-        </GlobalContainer>
-    );
-}
 
 export default Setting;

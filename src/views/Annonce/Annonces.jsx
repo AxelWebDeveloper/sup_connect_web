@@ -1,6 +1,45 @@
 import React from 'react';
 import styled from 'styled-components'
 
+/**
+ * Gestion / ajout des annonces
+ * @param placeholder
+ * @param onChange
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Annonce = ({ placeholder, onChange }) => {
+    return (
+        <GlobalContainer>
+            <Container>
+                <TitleBloc>Annonce</TitleBloc><br/>
+
+                <Bloc>
+                    <InputTitre
+                        type="text"
+                        placeholder="Titre de l'annonce"
+                        onChange={onChange}
+                    />
+                </Bloc>
+
+                <Bloc>
+                    <Input
+                        type="text"
+                        placeholder="J'ajoute une description"
+                        onChange={onChange}
+                    />
+                </Bloc>
+
+                <Bloc2>
+                    <Btn>
+                        Ajouter
+                    </Btn>
+                </Bloc2>
+            </Container>
+        </GlobalContainer>
+    );
+}
+
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -85,44 +124,5 @@ const Input = styled.input`
     border: 3px solid #7399FE;
   }
 `;
-
-/**
- * Gestion des annonces
- * @param placeholder
- * @param onChange
- * @returns {JSX.Element}
- * @constructor
- */
-const Annonce = ({ placeholder, onChange }) => {
-    return (
-        <GlobalContainer>
-            <Container>
-                <TitleBloc>Annonce</TitleBloc><br/>
-
-                <Bloc>
-                    <InputTitre
-                        type="text"
-                        placeholder="Titre de l'annonce"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc>
-                    <Input
-                        type="text"
-                        placeholder="J'ajoute une description"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc2>
-                    <Btn>
-                        Ajouter
-                    </Btn>
-                </Bloc2>
-            </Container>
-        </GlobalContainer>
-    );
-}
 
 export default Annonce;

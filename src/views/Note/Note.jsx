@@ -2,71 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PopupAssiduite from "../../components/PopupAssiduite";
 
-const GlobalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
-  margin: 10px;
-  background-color: white;
-  border-radius: 15px;
-`;
-
-const TitleBloc = styled.h2`
-    text-align: center;
-`;
-
-const TableContainer = styled.table`
-  border-collapse: separate;
-  width: 100%;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const TableHeader = styled.th`
-  color: black;
-  padding: 10px;
-`;
-
-const TableHeaderMiss = styled.th`
-  background-color: #E37878;
-  color: white;
-  border-radius: 30px;
-  padding: 10px;
-`;
-
-const TableRow = styled.tr`
-    &:hover {
-      background-color: #F5F5F5;
-    }
-`;
-
-const TableData = styled.td`
-  padding: 5px;
-`;
-
-const TitleClasse = styled.h2`
-  width: 150px;
-  text-align: center;
-  margin-bottom: 0.8em;
-  padding: 0.4em 2em 0.4em 1em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: white;
-  background: #EAAA6F;
-  border-radius: 15px;
-`;
-
+/**
+ * Gestion / ajout des notes, coef et commentaires
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Note = () => {
     return (
         <GlobalContainer>
@@ -184,5 +124,72 @@ const Note = () => {
         </GlobalContainer>
     );
 };
+
+
+const GlobalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  background-color: #eeeeee;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 250px);
+  height: 100vh;
+  margin: 10px;
+  background-color: white;
+  border-radius: 15px;
+`;
+
+const TitleBloc = styled.h2`
+    text-align: center;
+`;
+
+const TableContainer = styled.table`
+  border-collapse: separate;
+  width: 100%;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const TableHeader = styled.th`
+  color: black;
+  padding: 10px;
+`;
+
+const TableHeaderMiss = styled.th`
+  background-color: #E37878;
+  color: white;
+  border-radius: 30px;
+  padding: 10px;
+`;
+
+const TableRow = styled.tr`
+    &:hover {
+      background-color: #F5F5F5;
+    }
+`;
+
+const TableData = styled.td`
+  padding: 5px;
+`;
+
+const TitleClasse = styled.h2`
+  width: 150px;
+  text-align: center;
+  margin-bottom: 0.8em;
+  padding: 0.4em 2em 0.4em 1em;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
+  background: #EAAA6F;
+  border-radius: 15px;
+`;
+
 
 export default Note;

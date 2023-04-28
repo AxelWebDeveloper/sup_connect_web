@@ -1,6 +1,114 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
+/**
+ * Dashboard
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Home = () => {
+    /**
+     * Calendrier
+     */
+    const [today] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const daysInMonth = (month, year) => {
+        return new Date(year, month + 1, 0).getDate();
+    };
+
+    const firstDayOfMonth = (month, year) => {
+        return new Date(year, month, 1).getDay();
+    };
+
+    const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    const days = [];
+    const daysCount = daysInMonth(today.getMonth(), today.getFullYear());
+    const firstDay = firstDayOfMonth(today.getMonth(), today.getFullYear());
+    for (let i = 1; i <= firstDay; i++) {
+        days.push(null);
+    }
+    for (let i = 1; i <= daysCount; i++) {
+        days.push(new Date(today.getFullYear(), today.getMonth(), i));
+    }
+
+    const handleDayClick = (day) => {
+        setSelectedDate(day);
+    };
+
+    return (
+        <>
+            <GlobalContainer>
+            <Container>
+                <TitleBloc>Hello, Robin 👋</TitleBloc>
+                <DashboardContainer>
+                    <CardContainer>
+                        <Card style={{background:"#CAA9FF"}}>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
+                        </Card>
+                        <Card style={{background:"#A9C1FF"}}>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
+                        </Card>
+                        <Card style={{background:"#FFF6C7"}}>
+                            <CardText>X %</CardText>
+                            <CardTitle>Lorem ipsum</CardTitle>
+                        </Card>
+                    </CardContainer>
+                    <CardContainer>
+                        <Card style={{background:"#F9DEC5"}}>
+                            <CardTitle>Lorem ipsum</CardTitle>
+                            <CardText>Aucun événement récent</CardText>
+                        </Card>
+                        <Card style={{background:"#F9C5C5"}}>
+                            <CardTitle>Lorem ipsum</CardTitle>
+                            <CardText>Aucun événement récent</CardText>
+                        </Card>
+                    </CardContainer>
+                    <CardContainer>
+                        <>
+                            {/*
+                            <h1>{monthNames[today.getMonth()]}</h1>
+
+                            <CalendarWrapper>
+                                {days.map((day, index) => (
+                                    <CalendarDay
+                                        key={index}
+                                        isToday={day && day.toDateString() === today.toDateString()}
+                                        onClick={() => handleDayClick(day)}
+                                    >
+                                        {day ? day.getDate() : ""}
+                                    </CalendarDay>
+                                ))}
+                            </CalendarWrapper>
+                            {selectedDate && (
+                                <p>Selected date: {selectedDate.toDateString()}</p>
+                            )}
+                            */}
+                        </>
+                    </CardContainer>
+                </DashboardContainer>
+            </Container>
+        </GlobalContainer>
+        </>
+    );
+};
+
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,105 +194,5 @@ const CalendarDay = styled.div`
   background-color: ${({ isToday }) => (isToday ? "#f8f8f8" : "transparent")};
   font-weight: ${({ isToday }) => (isToday ? "bold" : "normal")};
 `;
-
-const Home = () => {
-    const [today] = useState(new Date());
-    const [selectedDate, setSelectedDate] = useState(null);
-
-    const daysInMonth = (month, year) => {
-        return new Date(year, month + 1, 0).getDate();
-    };
-
-    const firstDayOfMonth = (month, year) => {
-        return new Date(year, month, 1).getDay();
-    };
-
-    const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ];
-
-    const days = [];
-    const daysCount = daysInMonth(today.getMonth(), today.getFullYear());
-    const firstDay = firstDayOfMonth(today.getMonth(), today.getFullYear());
-    for (let i = 1; i <= firstDay; i++) {
-        days.push(null);
-    }
-    for (let i = 1; i <= daysCount; i++) {
-        days.push(new Date(today.getFullYear(), today.getMonth(), i));
-    }
-
-    const handleDayClick = (day) => {
-        setSelectedDate(day);
-    };
-
-    return (
-        <>
-            <Container>
-                <p>salut</p>
-            </Container>,
-            {/*<GlobalContainer>
-            <Container>
-                <TitleBloc>Hello, Robin 👋</TitleBloc>
-                <DashboardContainer>
-                    <CardContainer>
-                        <Card style={{background:"#CAA9FF"}}>
-                            <CardText>68 %</CardText>
-                            <CardTitle>Grammar</CardTitle>
-                        </Card>
-                        <Card style={{background:"#A9C1FF"}}>
-                            <CardText>84 %</CardText>
-                            <CardTitle>Listenning</CardTitle>
-                        </Card>
-                        <Card style={{background:"#FFF6C7"}}>
-                            <CardText>87 %</CardText>
-                            <CardTitle>Speaking</CardTitle>
-                        </Card>
-                    </CardContainer>
-                    <CardContainer>
-                        <Card style={{background:"#F9DEC5"}}>
-                            <CardTitle>Progress</CardTitle>
-                            <CardText>Aucun événement récent</CardText>
-                        </Card>
-                        <Card style={{background:"#F9C5C5"}}>
-                            <CardTitle>Blakrgvrjrj</CardTitle>
-                            <CardText>Aucun événement récent</CardText>
-                        </Card>
-                    </CardContainer>
-                    <CardContainer>
-                        <>
-                            <h1>{monthNames[today.getMonth()]}</h1>
-                            <CalendarWrapper>
-                                {days.map((day, index) => (
-                                    <CalendarDay
-                                        key={index}
-                                        isToday={day && day.toDateString() === today.toDateString()}
-                                        onClick={() => handleDayClick(day)}
-                                    >
-                                        {day ? day.getDate() : ""}
-                                    </CalendarDay>
-                                ))}
-                            </CalendarWrapper>
-                            {selectedDate && (
-                                <p>Selected date: {selectedDate.toDateString()}</p>
-                            )}
-                        </>
-                    </CardContainer>
-                </DashboardContainer>
-            </Container>
-        </GlobalContainer>*/}
-        </>
-    );
-};
 
 export default Home;
