@@ -32,6 +32,11 @@ const Txt = styled.p`
     margin-left: 5%;
 `;
 
+/**
+ * Gestion paramètres User
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Setting() {
     return (
         <GlobalContainer>

@@ -87,7 +87,7 @@ const Input = styled.input`
 `;
 
 /**
- * Gestion des annonces
+ * Gestion / ajout des annonces
  * @param placeholder
  * @param onChange
  * @returns {JSX.Element}

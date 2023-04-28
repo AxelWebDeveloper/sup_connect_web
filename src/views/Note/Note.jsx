@@ -67,6 +67,11 @@ const TitleClasse = styled.h2`
   border-radius: 15px;
 `;
 
+/**
+ * Gestion / ajout des notes, coef et commentaires
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Note = () => {
     return (
         <GlobalContainer>

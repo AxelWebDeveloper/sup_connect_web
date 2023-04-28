@@ -79,13 +79,18 @@ const Btn = styled.button`
   }
 `;
 
+/**
+ * Gestion des absences et retards côté ADMIN
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Assiduite() {
     const [buttonPopup, setButtonPopup] = useState(false);
 
     return (
         <GlobalContainer>
             <Container>
-                <TitleBloc>Absence / Retard</TitleBloc><br/>
+                <TitleBloc>Assiduité</TitleBloc><br/>
                 <TableContainer>
                     <thead>
                     <tr>

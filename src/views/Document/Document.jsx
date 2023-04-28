@@ -46,32 +46,12 @@ const TableData = styled.td`
 const TitleBloc = styled.h2`
   text-align: center;
 `;
-const TitlePopup = styled.h3`
-  text-align: center;
-`;
 
-const Btn = styled.button`
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 0 0.1em 0.1em 0;
-  border: 0.16em solid rgb(255, 255, 255);
-  border-radius: 2em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
-  text-align: center;
-  transition: all 0.2s;
-  background-color: #7299FE;
-
-  &:hover {
-    color: #7299FE;
-    background-color: rgb(255, 255, 255);
-  }
-`;
-
+/**
+ * Gestion des documents des élèves (bulletins, certificats, ect...)
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Document() {
     const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -112,8 +92,6 @@ function Document() {
                     </tbody>
                 </TableContainer>
             </Container>
-
-
         </GlobalContainer>
     );
 }

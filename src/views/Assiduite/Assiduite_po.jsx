@@ -1,14 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
 
-
-const Main = styled("div")`
-  font-family: sans-serif;
-  background: #f0f0f0;
-  height: 100vh;
-  background-color: #eeeeee;
-`;
-
 const DropDownContainer = styled("div")`
   width: 10.5em;
   margin: 0 auto;
@@ -115,6 +107,11 @@ const Btn = styled.button`
   }
 `;
 
+/**
+ * Gestion des absences et retards côté PROF
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function AssiduitePo() {
 
     const [isOpen, setIsOpen] = useState(false);

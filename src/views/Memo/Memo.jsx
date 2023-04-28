@@ -85,7 +85,13 @@ const Input = styled.input`
     border: 3px solid #7399FE;
   }
 `;
-
+/**
+ * Bloc-Note -> Ajout et gestion des mémo
+ * @param placeholder
+ * @param onChange
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Memo = ({ placeholder, onChange }) => {
     return (
         <GlobalContainer>

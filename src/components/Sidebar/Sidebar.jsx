@@ -3,17 +3,33 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import logo from '../../assets/dashboard-logo.png';
 import { RxDashboard } from 'react-icons/rx';
-import { IoSchoolOutline, IoLogOutOutline, IoSettingsOutline } from 'react-icons/io5';
+import {IoSchoolOutline, IoLogOutOutline, IoSettingsOutline, IoNewspaperOutline} from 'react-icons/io5';
 import { HiOutlineFolderOpen, HiOutlineUsers } from 'react-icons/hi2';
 import { BsPinAngle } from 'react-icons/bs';
+import {
+    AiOutlineEdit,
+    AiOutlineFile,
+    AiOutlineUsergroupDelete,
+    BiBeenHere,
+    BiChat,
+    BiCog, CiLogout,
+    FiEdit, GrNotes
+} from "react-icons/all";
 
+/**
+ * Menu vertical
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Sidebar = () => {
 
     return (
         <SideBarContainer>
             <StickyContainer>
                 <div style={{ display: 'flex', justifyContent: 'flex-start', padding: '0 35px' }}>
-                    <Logo src={logo} alt="Logo" width='25%'></Logo>
+                    <NavLink to="/">
+                        <Logo src={logo} alt="Logo" width='25%'></Logo>
+                    </NavLink>
                 </div>
                 <NavItems>
                     <Item>
@@ -30,25 +46,31 @@ const Sidebar = () => {
                     </Item>
                     <Item>
                         <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
+                        <NavLink to="/assiduite">
                             Retards et absences
                         </NavLink>
                     </Item>
                     <Item>
+                        <Icon><IoNewspaperOutline color={'#fff'} size={22} /></Icon>
+                        <NavLink to="/note">
+                            Note
+                        </NavLink>
+                    </Item>
+                    <Item>
                         <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
+                        <NavLink to="/document">
                             Documents
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Mes mémos
+                        <NavLink to="/memo">
+                            Memo
                         </NavLink>
                     </Item>
                     <Item>
                         <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
+                        <NavLink to="/setting">
                             Paramètres
                         </NavLink>
                     </Item>
@@ -59,66 +81,6 @@ const Sidebar = () => {
                         Se déconnecter
                     </LogOut>
                 </Footer>
-                {/*<DivRole>
-                    <Logo src={imgLogo}/>
-                    <LinkItem to={'/'}>
-                        <TextHead>SupConnect</TextHead>
-                    </LinkItem>
-                </DivRole>
-
-                <Menu>
-                    <ItemMenu>
-                        <LinkItem to={'/note'}>
-                            <FiEdit/>
-                            <TextItem>Note</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to={'/assiduite'}>
-                            <BiBeenHere/>
-                            <TextItem>Assiduité</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to='/document'>
-                            <AiOutlineFile />
-                            <TextItem>Document</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to='/memo'>
-                            <AiOutlineEdit />
-                            <TextItem>Mémo</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to='/annonce'>
-                            <BiChat />
-                            <TextItem>Annonce</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to='/classe'>
-                            <AiOutlineUsergroupDelete />
-                            <TextItem>Classe</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                    <ItemMenu>
-                        <LinkItem to='/setting'>
-                            <BiCog />
-                            <TextItem>Setting</TextItem>
-                        </LinkItem>
-                    </ItemMenu>
-                </Menu>
-
-                <DivProfile >
-                    <ImgProfile src={imgUser} alt=''/>
-                    <DivUser>
-                        <Name>Robin</Name>
-                        <RoleUser>P.O Coding Factory</RoleUser>
-                    </DivUser>
-                    <CiLogout/>
-                </DivProfile>*/}
             </StickyContainer>
         </SideBarContainer>
     );
@@ -270,7 +232,7 @@ const LinkItem = styled(Link)`
   &:hover {
     border-radius: 12px;
     font-weight: 600;
-    color: #white;
+    color: white;
   }
   &:active {
     color: black;

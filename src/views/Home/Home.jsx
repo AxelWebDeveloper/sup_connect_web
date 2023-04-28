@@ -87,7 +87,15 @@ const CalendarDay = styled.div`
   font-weight: ${({ isToday }) => (isToday ? "bold" : "normal")};
 `;
 
+/**
+ * Dashboard
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Home = () => {
+    /**
+     * Calendrier
+     */
     const [today] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -130,10 +138,7 @@ const Home = () => {
 
     return (
         <>
-            <Container>
-                <p>salut</p>
-            </Container>,
-            {/*<GlobalContainer>
+            <GlobalContainer>
             <Container>
                 <TitleBloc>Hello, Robin 👋</TitleBloc>
                 <DashboardContainer>
@@ -163,7 +168,9 @@ const Home = () => {
                     </CardContainer>
                     <CardContainer>
                         <>
+                            {/*
                             <h1>{monthNames[today.getMonth()]}</h1>
+                            */}
                             <CalendarWrapper>
                                 {days.map((day, index) => (
                                     <CalendarDay
@@ -182,7 +189,7 @@ const Home = () => {
                     </CardContainer>
                 </DashboardContainer>
             </Container>
-        </GlobalContainer>*/}
+        </GlobalContainer>
         </>
     );
 };
