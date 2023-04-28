@@ -14,7 +14,6 @@ const Container = styled.div`
   flex-direction: column;
   width: calc(100vw - 250px);
   height: 100vh;
-  margin: 10px;
   background-color: white;
   border-radius: 15px;
 `;
@@ -130,7 +129,11 @@ const Home = () => {
     };
 
     return (
-        <GlobalContainer>
+        <>
+            <Container>
+                <p>salut</p>
+            </Container>,
+            {/*<GlobalContainer>
             <Container>
                 <TitleBloc>Hello, Robin 👋</TitleBloc>
                 <DashboardContainer>
@@ -179,7 +182,8 @@ const Home = () => {
                     </CardContainer>
                 </DashboardContainer>
             </Container>
-        </GlobalContainer>
+        </GlobalContainer>*/}
+        </>
     );
 };
 
