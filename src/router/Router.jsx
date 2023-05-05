@@ -19,7 +19,7 @@ function Router() {
                     {/* Home page */}
                     <Route path="/" component={Home} element={<Home />} />
                     {/* Managing students' grades */}
-                    <Route path={"/note"} component={Note} element={<Note />} />
+                    <Route path={"/grades"} component={Note} element={<Note />} />
                     {/* Late arrivals and absences */}
                     <Route path={"/assiduite"} component={Assiduite} element={<Assiduite />} />
                     {/* Manage documents */}
@@ -28,9 +28,9 @@ function Router() {
                     <Route path={"/document"} component={Document} element={<Document/>} />
                     {/* Managing personal notes */}
                     <Route path={"/memo"} component={Memo} element={<Memo />} />
-                    {/* Send announcements to the student or class */}
+                    {/* Send announcements to the student or classes */}
                     <Route path={"/annonce"} component={Annonce} element={<Annonce />} />
-                    {/* List of classes within the school */}
+                    {/* List of classes within the schools */}
                     <Route path={"/classes"} component={Classe} element={<Classe />} />
                     {/* Application settings */}
                     <Route path={"/setting"} component={Setting} element={<Setting />} />

@@ -68,7 +68,7 @@ const Sidebar = () => {
 
                 <Menu>
                     <ItemMenu>
-                        <LinkItem to={'/note'}>
+                        <LinkItem to={'/grades'}>
                             <FiEdit/>
                             <TextItem>Note</TextItem>
                         </LinkItem>
