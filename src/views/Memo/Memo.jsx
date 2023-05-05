@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
+import Form from "./Input";
 
 /**
  * Bloc-Note -> Ajout et gestion des mémo
@@ -12,29 +13,99 @@ const Memo = ({ placeholder, onChange }) => {
     return (
         <GlobalContainer>
             <Container>
-                <TitleBloc>Memo</TitleBloc><br/>
-
-                <Bloc>
-                    <InputTitre
-                        type="text"
-                        placeholder="Titre de la note"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc>
-                    <Input
-                        type="text"
-                        placeholder="J'ajoute une note"
-                        onChange={onChange}
-                    />
-                </Bloc>
-
-                <Bloc2>
-                    <Btn>
-                        Ajouter
-                    </Btn>
-                </Bloc2>
+                <DivLeft>
+                    <TitleLeft>Recents</TitleLeft>
+                    <DivMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                        <NewMemo>
+                            <TitleMemo>
+                                {/*mettre ici les title recupe en bdd  */}
+                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
+                            </TitleMemo>
+                            <DivButton>
+                                <Btn type="button"  >Ouvrir</Btn>
+                                <Btn type="button"  >Fermer</Btn>
+                            </DivButton>
+                        </NewMemo>
+                    </DivMemo>
+                </DivLeft>
+                <DivRight>
+                    <TitleNewMemo>
+                        Écrire un nouveaux mémo
+                    </TitleNewMemo>
+                        <DivNewMemo>
+                            <Form />
+                        </DivNewMemo>
+                </DivRight>
             </Container>
         </GlobalContainer>
     );
@@ -43,86 +114,108 @@ const Memo = ({ placeholder, onChange }) => {
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100vw - 250px);
   height: 100vh;
   background-color: #eeeeee;
 `;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
+  flex-direction: row;
   height: 100vh;
+  width: 98% ;
   margin: 10px;
   background-color: white;
   border-radius: 15px;
 `;
+const DivLeft = styled.div`
+  width: 40%;
+  height: 100vh;
+  background-color: #f7f6ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const DivRight = styled.div`
+  width: 60%;
+  background-color: #f3f2e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-const Bloc = styled.div`    
+const TitleLeft = styled.h2`
+  font-size: 25px;
+  font-family: 'UrbanistSemiBold', sans-serif;
   display: flex;
   justify-content: center;
 `;
-
-const Bloc2 = styled.div`    
+const  DivMemo = styled.div`
+  width: 80%;
+  margin-bottom: 5%;
+  height: 100vh;
+  background-color: #f3f2e9;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  border-radius: 10px;
 `;
 
-const TitleBloc = styled.h2`
-    text-align: center;
+const NewMemo = styled.div`
+  width: 90%;
+  height: 100px;
+  background-color: white;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
-const Btn = styled.button`
-  padding: 0.5em 1em;
-  margin: 0 0.1em 0.1em 0;
-  border: 0.16em solid rgb(255, 255, 255);
-  border-radius: 2em;
-  box-sizing: border-box;
-  text-decoration: none;
+const TitleMemo = styled.p`
+  margin-left: 5%;
+  max-width: 90%;
+  font-family: 'UrbanistSemiBold', sans-serif;
   font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
-  text-align: center;
-  transition: all 0.2s;
-  background-color: #7299FE;
-  height: 50px;
-  width: 100px;
-  
-  &:hover {
-    color: #7299FE;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #7399FE;
-  }
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
-
-const InputTitre = styled.input`
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #7399FE;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  height: 50px;
-  width: 60%;
-
-  &:focus {
-    outline: none;
-    border: 3px solid #7399FE;
-  }
+const DivButton = styled.div`
+  width: 90%;
+  height: 30px;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-evenly;
 `;
-
-const Input = styled.input`
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #7399FE;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  height: 400px;
-  width: 60%;
-
-  &:focus {
-    outline: none;
-    border: 3px solid #7399FE;
-  }
+const Btn = styled.button`
+  width: 30%;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  border: 0.16em ;
+  color: black;
+  font-size: 13px;
+  font-weight: 800;
+  background-color: #f7f6ef;
 `;
-
+const TitleNewMemo = styled.h2`
+  font-size: 25px;
+  font-family: 'UrbanistSemiBold', sans-serif;
+  display: flex;
+  justify-content: center;
+`;
+const DivNewMemo = styled.div`
+  width: 90%;
+  margin-bottom: 5%;
+  height: 100vh;
+  background-color: #f7f6ef;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+`;
 export default Memo;

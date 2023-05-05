@@ -30,7 +30,7 @@ const Sidebar = () => {
                     </Item>
                     <Item>
                         <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
+                        <NavLink to="/assiduite">
                             Retards et absences
                         </NavLink>
                     </Item>
@@ -42,7 +42,7 @@ const Sidebar = () => {
                     </Item>
                     <Item>
                         <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
+                        <NavLink to="/memo">
                             Mes mémos
                         </NavLink>
                     </Item>
