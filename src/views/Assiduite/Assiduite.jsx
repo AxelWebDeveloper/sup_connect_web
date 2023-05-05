@@ -14,7 +14,6 @@ function Assiduite() {
     return (
         <GlobalContainer>
             <Container>
-                <TitleBloc>Assiduité</TitleBloc><br/>
                 <TableContainer>
                     <thead>
                     <tr>
@@ -120,22 +119,24 @@ const Container = styled.div`
 `;
 
 const TableContainer = styled.table`
+  margin-top: 3%;
+  margin-left: 1%;
   border-collapse: separate;
-  width: 100%;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 95%;
 `;
 
 const TableHeader = styled.th`
   color: black;
   padding: 10px;
+  background-color: #F7F7F7;
+  height: 50px;
 `;
 
 const TableHeaderMiss = styled.th`
   color: #E37878;
-  border-radius: 30px;
   padding: 10px;
+  background-color: #F7F7F7;
 `;
 
 const TableRow = styled.tr`
@@ -148,19 +149,16 @@ const TableData = styled.td`
   padding: 5px;
 `;
 
-const TitleBloc = styled.h2`
-    text-align: center;
-`;
 const TitlePopup = styled.h3`
-    text-align: center;
+    display: flex;
 `;
-
 const Btn = styled.button`
   display: inline-block;
+  height: 40px;
+  border-radius: 5px;
   padding: 0.5em 1em;
   margin: 0 0.1em 0.1em 0;
   border: 0.16em solid rgb(255, 255, 255);
-  border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
