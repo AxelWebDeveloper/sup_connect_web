@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
 
-
 const Form = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -40,7 +39,6 @@ const Form = () => {
     );
 };
 
-
 const InputTitle = styled.input`
   width: 450px;
   height: 30px;
@@ -76,9 +74,11 @@ const Button = styled.button`
     background-color: #b5de2e;
   }
 `;
+
 const DivForm = styled.div `
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
+
 export default Form;

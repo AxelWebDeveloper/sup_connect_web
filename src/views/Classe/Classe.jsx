@@ -38,7 +38,6 @@ const Classe = () => {
         { nom: 'Martin', prenom: 'Emma', age: 13, classe: '5ème' },
     ];
 
-
     return (
         <styled.Container>
             { showStudents && (
