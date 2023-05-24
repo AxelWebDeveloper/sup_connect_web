@@ -10,8 +10,6 @@ const PopupAssiduite = (props) => {
             </div>
         </div>
     ): "";
-
-
 };
 
 
