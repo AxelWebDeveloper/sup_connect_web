@@ -15,13 +15,12 @@ const Memo = ({ placeholder, onChange }) => {
     const [listMemo, setListMemo] = useState([]);
 
     useEffect(() => {
-        const getClasses = async () => {
+        const getMemo = async () => {
             const { data } = await axios.get('http://localhost:3000/api/memo/');
             setListMemo(data);
-            console.log(data)
         }
 
-        getClasses();
+        getMemo();
     }, [])
 
     return (
@@ -46,12 +45,13 @@ const Memo = ({ placeholder, onChange }) => {
                         })}
                     </DivMemo>
                 </DivLeft>
+
                 <DivRight>
                     <TitleNewMemo>
                         Écrire un nouveaux mémo
                     </TitleNewMemo>
                         <DivNewMemo>
-                            <Form />
+                            <Form setListMemo={setListMemo} />
                         </DivNewMemo>
                 </DivRight>
             </Container>
