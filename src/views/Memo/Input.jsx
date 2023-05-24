@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-const Form = ({ setListMemo }) => {
+const Form = ({ memos, setListMemo }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -26,6 +26,7 @@ const Form = ({ setListMemo }) => {
             title: title,
             content: content
         }
+        setListMemo([...memos, post]);
     }
 
     return (

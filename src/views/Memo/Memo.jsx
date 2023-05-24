@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import Form from "./Input";
 import axios from "axios";
+import PopupAssiduite from "../../components/PopupAssiduite";
 
 /**
  * Bloc-Note -> Ajout et gestion des mémo
@@ -11,7 +12,7 @@ import axios from "axios";
  * @constructor
  */
 const Memo = ({ placeholder, onChange }) => {
-
+    const [buttonPopup, setButtonPopup] = useState(false);
     const [listMemo, setListMemo] = useState([]);
 
     useEffect(() => {
@@ -22,6 +23,13 @@ const Memo = ({ placeholder, onChange }) => {
 
         getMemo();
     }, [])
+
+    const handleDelete = async (item) => {
+        await axios.delete(`http://localhost:3000/api/memo/${item.id}`);
+        setListMemo((current) =>
+            current.filter((currentItem) => currentItem.id !== item.id)
+        );
+    };
 
     return (
         <GlobalContainer>
@@ -37,8 +45,21 @@ const Memo = ({ placeholder, onChange }) => {
                                         {item.title}
                                     </TitleMemo>
                                     <DivButton>
-                                        <Btn type="button"  >Ouvrir</Btn>
-                                        <Btn type="button"  >Fermer</Btn>
+                                        <Btn onClick={() => setButtonPopup(true)} type="button">
+                                            Ouvrir
+                                        </Btn>
+                                            <div>
+                                                <PopupAssiduite trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                                        <TitleMemo>
+                                                            {item.title}
+                                                        </TitleMemo>
+                                                        <p>
+                                                            {item.content}
+                                                        </p>
+                                                </PopupAssiduite>
+                                            </div>
+
+                                        <Btn type="button" onClick={() => handleDelete(item)}>Supprimer</Btn>
                                     </DivButton>
                                 </NewMemo>
                             )
@@ -51,7 +72,7 @@ const Memo = ({ placeholder, onChange }) => {
                         Écrire un nouveaux mémo
                     </TitleNewMemo>
                         <DivNewMemo>
-                            <Form setListMemo={setListMemo} />
+                            <Form setListMemo={setListMemo} memos={listMemo} />
                         </DivNewMemo>
                 </DivRight>
             </Container>
