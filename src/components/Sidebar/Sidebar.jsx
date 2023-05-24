@@ -8,6 +8,7 @@ import { HiOutlineFolderOpen, HiOutlineUsers } from 'react-icons/hi2';
 import { BsPinAngle } from 'react-icons/bs';
 
 const Sidebar = () => {
+    const account = "prof"
 
     return (
         <SideBarContainer>
@@ -15,44 +16,166 @@ const Sidebar = () => {
                 <div style={{ display: 'flex', justifyContent: 'flex-start', padding: '0 35px' }}>
                     <Logo src={logo} alt="Logo" width='25%'></Logo>
                 </div>
-                <NavItems>
-                    <Item>
-                        <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Tableau de bord
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/classes">
-                            Les classes
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/assiduite">
-                            Retards et absences
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Documents
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/memo">
-                            Mes mémos
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Paramètres
-                        </NavLink>
-                    </Item>
-                </NavItems>
+                { account === "prof" && (
+                    <NavItems>
+                        <Item>
+                            <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Tableau de bord
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/classes">
+                                Les classes
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/assiduiteprof">
+                                Retards et absences
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Documents
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/memo">
+                                Mes mémos
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Paramètres
+                            </NavLink>
+                        </Item>
+                    </NavItems>
+                )}
+                { account === "directeur" && (
+                    <NavItems>
+                        <Item>
+                            <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Tableau de bord
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/classes">
+                                Les classes
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/assiduite">
+                                Retards et absences
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Documents
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/memo">
+                                Mes mémos
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Paramètres
+                            </NavLink>
+                        </Item>
+                    </NavItems>
+                )}
+                { account === "administration" && (
+                    <NavItems>
+                        <Item>
+                            <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Tableau de bord
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/classes">
+                                Les classes
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/assiduite">
+                                Retards et absences
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Documents
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/memo">
+                                Mes mémos
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Paramètres
+                            </NavLink>
+                        </Item>
+                    </NavItems>
+                )}
+                { account === "admin" && (
+                    <NavItems>
+                        <Item>
+                            <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Tableau de bord
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                Les écoles
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/assiduite">
+                                Retards et absences
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                TEST
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                TEST
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/">
+                                TEST
+                            </NavLink>
+                        </Item>
+                    </NavItems>
+                )}
                 <Footer>
                     <LogOut>
                         <IoLogOutOutline color={'#fff'} size={21} />
