@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { useState } from "react";
+import AddDocumentPage from './AddDocumentPage';
 
 /**
  * Gestion des documents des élèves (bulletins, certificats, ect...)
@@ -13,39 +14,12 @@ function Document() {
     return (
         <GlobalContainer>
             <Container>
-                <TitleBloc>Documents</TitleBloc><br/>
-                <TableContainer>
-                    <thead>
-                    <tr>
-                        <TableHeader>Nom</TableHeader>
-                        <TableHeader>Type</TableHeader>
-                        <TableHeader>Contexte</TableHeader>
-                        <TableHeader>Créateur</TableHeader>
-                        <TableHeader>Modifié le</TableHeader>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <TableRow>
-                        <TableData>
-                            <a href="#">Bulletin</a>
-                        </TableData>
-                        <TableData>Dossier</TableData>
-                        <TableData>-</TableData>
-                        <TableData>-</TableData>
-                        <TableData>21/03/23</TableData>
-                    </TableRow>
-                    <TableRow>
-                        <TableData>
-                            <a href="#">Préinscription</a>
-                        </TableData>
-                        <TableData>Dossier</TableData>
-                        <TableData>-</TableData>
-                        <TableData>-</TableData>
-                        <TableData>21/09/22</TableData>
-                    </TableRow>
-
-                    </tbody>
-                </TableContainer>
+                <DivDoc>
+                    <TitleDoc>Envoyer un documment</TitleDoc>
+                </DivDoc>
+                <CardAdd>
+                    <AddDocumentPage />
+                </CardAdd>
             </Container>
         </GlobalContainer>
     );
@@ -54,46 +28,44 @@ function Document() {
 const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100vw - 250px);
   height: 100vh;
   background-color: #eeeeee;
 `;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  width: calc(100vw - 250px);
-  height: 100vh;
+  width: 98% ;
   margin: 10px;
+  flex-direction: column;
+  height: 100vh;
   background-color: white;
   border-radius: 15px;
+  align-items: center
+  
 `;
 
-const TableContainer = styled.table`
-  border-collapse: separate;
-  width: 100%;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+const DivDoc = styled.div`
+  flex: 1;
 `;
 
-const TableHeader = styled.th`
-  color: black;
-  padding: 10px;
+const TitleDoc = styled.h1`
+  font-family: 'UrbanistSemiBold', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: center;
 `;
 
-const TableRow = styled.tr`
-  &:hover {
-    background-color: #F5F5F5;
-  }
-`;
-
-const TableData = styled.td`
-  padding: 5px;
-`;
-
-const TitleBloc = styled.h2`
-  text-align: center;
+const CardAdd = styled.div`
+  background-color: #AAC0FF;
+  display: flex;
+  margin-bottom: 22% ;
+  width: 60%;
+  height: 350px;
+  border-radius: 20px;
 `;
 
 export default Document;
