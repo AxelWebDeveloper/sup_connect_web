@@ -10,6 +10,7 @@ import Annonce from "../views/Annonce/Annonces";
 import Memo from "../views/Memo/Memo";
 import Document from "../views/Document/Document";
 import Container from "../components/Container/Container";
+import Note_po from "../views/Note/Note_po";
 
 function Router() {
     return (
@@ -24,6 +25,8 @@ function Router() {
                     <Route path={"/assiduite"} component={Assiduite} element={<Assiduite />} />
                     {/* Manage documents */}
                     <Route path={"/assiduiteprof"} component={Assiduite_po} element={<Assiduite_po/>} />
+                    {/* Manage notes prof */}
+                    <Route path={"/noteprof"} component={Note_po} element={<Note_po/>} />
                     {/* Manage documents */}
                     <Route path={"/document"} component={Document} element={<Document/>} />
                     {/* Managing personal notes */}

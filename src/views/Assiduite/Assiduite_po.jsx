@@ -1,119 +1,144 @@
-import React, {useState} from 'react';
+import React, {useState, ChangeEvent, useEffect} from 'react';
 import styled from 'styled-components'
+
+import Select from 'react-select';
+import AttendanceSwitch from "./AttendanceSwitch";
+import axios from "axios";
 
 /**
  * Gestion des absences et retards côté PROF
  * @returns {JSX.Element}
  * @constructor
  */
-function AssiduitePo() {
+const AssiduitePo = () => {
+    const [students, setStudents] = useState([])
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    useEffect(() => {
+        const getListAtendance = async () => {
+            const { data } = await axios.get('http://localhost:3000/api/delays/newdelay/1/1');
+            setStudents(data);
+        }
 
-    const toggling = () => setIsOpen(!isOpen);
+        getListAtendance();
+    }, [])
 
-    const onOptionClicked = value => () => {
-        setSelectedOption(value);
-        setIsOpen(false);
-        console.log(selectedOption);
-    };
+    const users = [
+        {
+            "id": 1,
+            "firstName": "Walid",
+            "lastName": "HADDOURY",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 2,
+            "firstName": "Alexis",
+            "lastName": "MAJZRACK",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 3,
+            "firstName": "Axel",
+            "lastName": "DEMOREST",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 4,
+            "firstName": "Oceane",
+            "lastName": "LE GOFF",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 5,
+            "firstName": "Mael",
+            "lastName": "LEGRAND",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 6,
+            "firstName": "Nohan",
+            "lastName": "MARIE LOUISE",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 7,
+            "firstName": "Allan",
+            "lastName": "PEREIRA",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 8,
+            "firstName": "Merwan",
+            "lastName": "LAOUINI",
+            "isPresent": true,
+            "isLate": ""
+        },
+        {
+            "id": 9,
+            "firstName": "Loic",
+            "lastName": "GOURIOU",
+            "isPresent": true,
+            "isLate": ""
+        },
+    ]
+
+    const onSubmit = async () => {
+        await axios.post('http://localhost:3000/api/delays/', students);
+        console.log(students);
+    }
+
+    const lesson = {
+        name: 'Java avancé',
+        start_lesson: '9h00',
+        end_lesson: '12h00'
+    }
 
     return (
         <GlobalContainer>
             <Container>
                 <TitleBloc>Absence / Retard</TitleBloc><br/>
 
-                <DropDownContainer>
-                    <DropDownHeader onClick={toggling}>
-                        {selectedOption || "Classe"}
-                    </DropDownHeader>
-                    {isOpen && (
-                        <DropDownListContainer>
-                            <DropDownList>
-                                {options.map(option => (
-                                    <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                                        {option}
-                                    </ListItem>
-                                ))}
-                            </DropDownList>
-                        </DropDownListContainer>
-                    )}
-                </DropDownContainer>
+                <DivLesson>
+                    <NameLesson>
+                        <p>
+                            {lesson.name}
+                        </p>
+                    </NameLesson>
+                    <InfoLesson>
+                        <p>
+                            {lesson.start_lesson} à  {lesson.end_lesson}
+                        </p>
+                    </InfoLesson>
+                </DivLesson>
 
-                <TableContainer>
-                    <thead>
-                    <tr>
-                        <TableHeader>Nom</TableHeader>
-                        <TableHeader>Prénom</TableHeader>
-                        <TableHeader>Retard</TableHeader>
-                        <TableHeader></TableHeader>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <TableRow>
-                        <TableData>LE GOFF</TableData>
-                        <TableData>Océane</TableData>
-                        <TableData>
-                            <label>
-                                <input name="timeRetard" />
-                            </label>
-                        </TableData>
-                        <TableData>
-                            <Btn type="button" absent>
-                                absent
-                            </Btn>
-                        </TableData>
-                    </TableRow>
-
-                    </tbody>
-                </TableContainer>
+                <DivAttendance>
+                    <TableContainer>
+                        <AttendanceTitle>
+                            <AttendanceHeader>Nom</AttendanceHeader>
+                            <AttendanceHeader>Prénom</AttendanceHeader>
+                            <AttendanceHeader>Retard</AttendanceHeader>
+                            <AttendanceHeader>Présent</AttendanceHeader>
+                        </AttendanceTitle>
+                        <AttendanceBody>
+                        {students.map((option, index) => (
+                                <AttendanceSwitch key={index} data={option}></AttendanceSwitch>
+                        ))}
+                        </AttendanceBody>
+                    </TableContainer>
+                    <ButtonValidate type="submit" onClick={onSubmit} >Terminer l'appel</ButtonValidate>
+                </DivAttendance>
             </Container>
 
 
         </GlobalContainer>
     );
 }
-
-const DropDownContainer = styled("div")`
-  width: 10.5em;
-  margin: 0 auto;
-`;
-
-const DropDownHeader = styled("div")`
-  margin-bottom: 0.8em;
-  padding: 0.4em 2em 0.4em 1em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: white;
-  background: #EAAA6F;
-  border-radius: 15px;
-`;
-
-const DropDownListContainer = styled("div")``;
-
-const DropDownList = styled("ul")`
-  padding: 0;
-  margin: 0;
-  padding-left: 1em;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-sizing: border-box;
-  color: black;
-  font-size: 1.3rem;
-  font-weight: 500;
-  &:first-child {
-    padding-top: 0.8em;
-  }
-`;
-
-const ListItem = styled("li")`
-  list-style: none;
-  margin-bottom: 0.8em;
-`;
-
-const options = ["L1 Paris", "L2 Paris", "L3 Paris"];
 
 const GlobalContainer = styled.div`
   display: flex;
@@ -125,14 +150,59 @@ const GlobalContainer = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100vw - 250px);
+  align-items: center;
+  width: 100%;
   height: 100vh;
   margin: 10px;
   background-color: white;
   border-radius: 15px;
 `;
 
-const TableContainer = styled.table`
+const TitleBloc = styled.h2`
+  margin-top: 50px;
+  text-align: center;
+`;
+
+const DropDownContainer = styled("div")`
+  width: 10.5em;
+  margin-bottom: 20px;
+`;
+
+const DivLesson = styled.div`
+  display: flex;
+  height: 50px;
+  width: calc(80% - 6px);
+  background: rgba(33,42,255,0.75);
+  color: white;
+  justify-content: space-evenly;
+`
+
+const NameLesson = styled.div`
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  font-weight: bolder;
+`
+
+const InfoLesson = styled.div`
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  font-weight: bolder;
+`
+
+const DivAttendance = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+`
+
+const TableContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   border-collapse: separate;
   width: 100%;
   text-align: center;
@@ -140,45 +210,39 @@ const TableContainer = styled.table`
   margin: 0 auto;
 `;
 
-const TableHeader = styled.th`
+const AttendanceTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+`
+
+const AttendanceHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
   color: black;
-  padding: 10px;
+  background: rgba(33,42,255,0.75);
+  border: 3px solid white;
+  color: white;
 `;
 
-const TableRow = styled.tr`
-    &:hover {
-      background-color: #F5F5F5;
-    }
-`;
+const AttendanceBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
 
-const TableData = styled.td`
-  padding: 5px;
-`;
-
-const TitleBloc = styled.h2`
-    text-align: center;
-`;
-
-const Btn = styled.button`
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 0 0.1em 0.1em 0;
-  border: 0.16em solid rgb(255, 255, 255);
-  border-radius: 2em;
-  box-sizing: border-box;
+const ButtonValidate = styled.button`
+  background: lightgreen;
+  height: 50px;
+  width: 25%;
+  border: 3px solid white;
   text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
-  text-align: center;
-  transition: all 0.2s;
-  background-color: #E37878;
-  
-  &:hover {
-    color: #E37878;
-    background-color: rgb(255, 255, 255);
+  :hover {
+    background: #33FF5B;
   }
-`;
-
+`
 export default AssiduitePo;

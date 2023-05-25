@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
-
-const Form = () => {
+const Form = ({ memos, setListMemo }) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
@@ -14,32 +14,31 @@ const Form = () => {
         setContent(event.target.value);
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('Title submitted: ', title);
         console.log('Content submitted: ', content);
-    };
+        await axios.post('http://localhost:3000/api/memo/', {
+            title: title,
+            content: content
+        });
+        const post = {
+            title: title,
+            content: content
+        }
+        setListMemo([...memos, post]);
+    }
 
     return (
-        <DivForm>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection:'column', alignItems:'center', marginTop:'5%' }}  >
-                <InputTitle
-                    value={title}
-                    onChange={handleTitleChange}
-                    placeholder="Titre"
-                />
-                mettre un truck au milieu jsp ptre un select pour choisir des catégories ?
-                <Input
-                    value={content}
-                    onChange={handleContentChange}
-                    placeholder="Écrire ..."
-                />
-                <Button type="submit">Envoyer</Button>
-            </form>
-        </DivForm>
+         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection:'column', alignItems:'center', marginTop:'5%' }}  >
+            <DivForm>
+                <InputTitle onChange={(e) => handleTitleChange(e)} />
+                <Input onChange={(e) => handleContentChange(e)} />
+            </DivForm>
+             <Button type="submit">Envoyer</Button>
+         </form>
     );
 };
-
 
 const InputTitle = styled.input`
   width: 450px;
@@ -76,9 +75,11 @@ const Button = styled.button`
     background-color: #b5de2e;
   }
 `;
+
 const DivForm = styled.div `
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
+
 export default Form;
