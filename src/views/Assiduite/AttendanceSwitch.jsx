@@ -8,7 +8,7 @@ import Modal from '@mui/material/Modal';
 import {TextField} from "@mui/material";
 import {AiOutlineEdit} from "react-icons/ai";
 
-const AttendanceSwitch = ({data, props}) => {
+const AttendanceSwitch = ({data}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
