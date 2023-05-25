@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import Form from "./Input";
+import axios from "axios";
+import PopupAssiduite from "../../components/PopupAssiduite";
 
 /**
  * Bloc-Note -> Ajout et gestion des mémo
@@ -10,100 +12,67 @@ import Form from "./Input";
  * @constructor
  */
 const Memo = ({ placeholder, onChange }) => {
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [listMemo, setListMemo] = useState([]);
+
+    useEffect(() => {
+        const getMemo = async () => {
+            const { data } = await axios.get('http://localhost:3000/api/memo/');
+            setListMemo(data);
+        }
+
+        getMemo();
+    }, [])
+
+    const handleDelete = async (item) => {
+        await axios.delete(`http://localhost:3000/api/memo/${item.id}`);
+        setListMemo((current) =>
+            current.filter((currentItem) => currentItem.id !== item.id)
+        );
+    };
+
     return (
         <GlobalContainer>
             <Container>
                 <DivLeft>
                     <TitleLeft>Recents</TitleLeft>
                     <DivMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
-                        <NewMemo>
-                            <TitleMemo>
-                                {/*mettre ici les title recupe en bdd  */}
-                                8 octobre 2024 Envoyer mail dadazdazdazdazdazd
-                            </TitleMemo>
-                            <DivButton>
-                                <Btn type="button"  >Ouvrir</Btn>
-                                <Btn type="button"  >Fermer</Btn>
-                            </DivButton>
-                        </NewMemo>
+                        {listMemo.map((item, index) => {
+                            console.log(item)
+                            return (
+                                <NewMemo key={index}>
+                                    <TitleMemo>
+                                        {item.title}
+                                    </TitleMemo>
+                                    <DivButton>
+                                        <Btn onClick={() => setButtonPopup(true)} type="button">
+                                            Ouvrir
+                                        </Btn>
+                                            <div>
+                                                <PopupAssiduite trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                                        <TitleMemo>
+                                                            {item.title}
+                                                        </TitleMemo>
+                                                        <p>
+                                                            {item.content}
+                                                        </p>
+                                                </PopupAssiduite>
+                                            </div>
+
+                                        <Btn type="button" onClick={() => handleDelete(item)}>Supprimer</Btn>
+                                    </DivButton>
+                                </NewMemo>
+                            )
+                        })}
                     </DivMemo>
                 </DivLeft>
+
                 <DivRight>
                     <TitleNewMemo>
                         Écrire un nouveaux mémo
                     </TitleNewMemo>
                         <DivNewMemo>
-                            <Form />
+                            <Form setListMemo={setListMemo} memos={listMemo} />
                         </DivNewMemo>
                 </DivRight>
             </Container>
@@ -127,6 +96,7 @@ const Container = styled.div`
   background-color: white;
   border-radius: 15px;
 `;
+
 const DivLeft = styled.div`
   width: 40%;
   height: 100vh;
@@ -135,6 +105,7 @@ const DivLeft = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const DivRight = styled.div`
   width: 60%;
   background-color: #f3f2e9;
@@ -149,6 +120,7 @@ const TitleLeft = styled.h2`
   display: flex;
   justify-content: center;
 `;
+
 const  DivMemo = styled.div`
   width: 80%;
   margin-bottom: 5%;
@@ -183,6 +155,7 @@ const TitleMemo = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
 const DivButton = styled.div`
   width: 90%;
   height: 30px;
@@ -191,6 +164,7 @@ const DivButton = styled.div`
   display: flex;
   justify-content: space-evenly;
 `;
+
 const Btn = styled.button`
   width: 30%;
   border-radius: 5px;
@@ -201,12 +175,14 @@ const Btn = styled.button`
   font-weight: 800;
   background-color: #f7f6ef;
 `;
+
 const TitleNewMemo = styled.h2`
   font-size: 25px;
   font-family: 'UrbanistSemiBold', sans-serif;
   display: flex;
   justify-content: center;
 `;
+
 const DivNewMemo = styled.div`
   width: 90%;
   margin-bottom: 5%;
@@ -218,4 +194,5 @@ const DivNewMemo = styled.div`
   align-items: center;
   border-radius: 10px;
 `;
+
 export default Memo;
