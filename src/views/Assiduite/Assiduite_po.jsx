@@ -1,6 +1,5 @@
 import React, {useState, ChangeEvent, useEffect} from 'react';
 import styled from 'styled-components'
-import { useForm } from "react-hook-form";
 
 import Select from 'react-select';
 import AttendanceSwitch from "./AttendanceSwitch";
