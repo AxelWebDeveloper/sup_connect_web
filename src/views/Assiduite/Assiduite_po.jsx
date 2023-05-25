@@ -127,8 +127,8 @@ const AssiduitePo = () => {
                             <AttendanceHeader>Présent</AttendanceHeader>
                         </AttendanceTitle>
                         <AttendanceBody>
-                        {students.map(option => (
-                                <AttendanceSwitch key={option.id} data={option}></AttendanceSwitch>
+                        {students.map((option, index) => (
+                                <AttendanceSwitch key={index} data={option}></AttendanceSwitch>
                         ))}
                         </AttendanceBody>
                     </TableContainer>

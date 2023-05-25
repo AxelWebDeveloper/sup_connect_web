@@ -6,6 +6,7 @@ import { RxDashboard } from 'react-icons/rx';
 import { IoSchoolOutline, IoLogOutOutline, IoSettingsOutline } from 'react-icons/io5';
 import { HiOutlineFolderOpen, HiOutlineUsers } from 'react-icons/hi2';
 import { BsPinAngle } from 'react-icons/bs';
+import {SlNote} from "react-icons/sl";
 
 const Sidebar = () => {
     const account = "prof"
@@ -34,6 +35,12 @@ const Sidebar = () => {
                             <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
                             <NavLink to="/assiduiteprof">
                                 Retards et absences
+                            </NavLink>
+                        </Item>
+                        <Item>
+                            <Icon><SlNote color={'#fff'} size={22} /></Icon>
+                            <NavLink to="/noteprof">
+                                Notes
                             </NavLink>
                         </Item>
                         <Item>
