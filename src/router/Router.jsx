@@ -32,6 +32,8 @@ function Router() {
                     <Route path={"/memo"} component={Memo} element={<Memo />} />
                     {/* List of classes within the schools */}
                     <Route path={"/classes"} component={ClassList} element={<ClassList />} />
+                    {/* Send announcements to the student or classes */}
+                    <Route path={"/annonce"} component={Annonce} element={<Annonce />} />
                     {/* Application settings */}
                     <Route path={"/setting"} component={Setting} element={<Setting />} />
                     {/* Application settings */}
