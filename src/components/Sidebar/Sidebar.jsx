@@ -16,42 +16,42 @@ const Sidebar = () => {
                     <Logo src={logo} alt="Logo" width='25%'></Logo>
                 </div>
                 <NavItems>
-                    <Item>
-                        <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Tableau de bord
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/classes">
-                            Les classes
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/assiduite">
-                            Retards et absences
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Documents
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/memo">
-                            Mes mémos
-                        </NavLink>
-                    </Item>
-                    <Item>
-                        <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
-                        <NavLink to="/">
-                            Paramètres
-                        </NavLink>
-                    </Item>
+                    <NavLink to="/">
+                        <Item>
+                            <Icon><RxDashboard color={'#fff'} size={22} /></Icon>
+                                Tableau de bord
+                        </Item>
+                    </NavLink>
+                    <NavLink to="/classes">
+                        <Item>
+                            <Icon><HiOutlineUsers color={'#fff'} size={22} /></Icon>
+                                Les classes
+                        </Item>
+                    </NavLink>
+                    <NavLink to="/assiduite">
+                        <Item>
+                            <Icon><IoSchoolOutline color={'#fff'} size={22} /></Icon>
+                                Retards et absences
+                        </Item>
+                    </NavLink>
+                    <NavLink to="/">
+                        <Item>
+                            <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
+                                Documents
+                        </Item>
+                    </NavLink>
+                    <NavLink to="/memo">
+                        <Item>
+                            <Icon><BsPinAngle color={'#fff'} size={22} /></Icon>
+                                Mes mémos
+                        </Item>
+                    </NavLink>
+                    <NavLink to="/">
+                        <Item>
+                            <Icon><IoSettingsOutline color={'#fff'} size={22} /></Icon>
+                                Paramètres
+                        </Item>
+                    </NavLink>
                 </NavItems>
                 <Footer>
                     <LogOut>
@@ -94,13 +94,13 @@ const Sidebar = () => {
                     <ItemMenu>
                         <LinkItem to='/annonce'>
                             <BiChat />
-                            <TextItem>Annonce</TextItem>
+                            <TextItem>Ads</TextItem>
                         </LinkItem>
                     </ItemMenu>
                     <ItemMenu>
                         <LinkItem to='/classe'>
                             <AiOutlineUsergroupDelete />
-                            <TextItem>Classe</TextItem>
+                            <TextItem>ClassList</TextItem>
                         </LinkItem>
                     </ItemMenu>
                     <ItemMenu>
@@ -180,21 +180,21 @@ const Item = styled.li`
   }
 `;
 
-const Icon = styled.div`
-  width: 30%;
-  display: flex;
-  justify-content: center;
-`;
-
 const NavLink = styled(Link)`
+  width: 100%;
   font-family: 'UrbanistRegular', sans-serif;
   transition: color 0.2s, background-color 0.2s;
   cursor: pointer;
   border-radius: 10px;
   font-size: 16.5px;
   color: #fff;
-  width: 70%;
   text-decoration: none;
+`;
+
+const Icon = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: center;
 `;
 
 const LogOut = styled.button`

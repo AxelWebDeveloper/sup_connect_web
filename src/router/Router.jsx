@@ -5,16 +5,15 @@ import Assiduite from "../views/Assiduite/Assiduite";
 import Note from "../views/Note/Note";
 import Assiduite_po from "../views/Assiduite/Assiduite_po";
 import Setting from "../views/Setting/Setting";
-import Classe from "../views/Classe/Classe";
-import Annonce from "../views/Annonce/Annonces";
+import ClassList from "../views/ClassList/ClassList";
 import Memo from "../views/Memo/Memo";
 import Document from "../views/Document/Document";
 import Container from "../components/Container/Container";
+import StudentList from "../views/StudentList/StudentList";
 
 function Router() {
     return (
         <BrowserRouter>
-            <Container>
                 <Routes>
                     {/* Home page */}
                     <Route path="/" component={Home} element={<Home />} />
@@ -28,14 +27,13 @@ function Router() {
                     <Route path={"/document"} component={Document} element={<Document/>} />
                     {/* Managing personal notes */}
                     <Route path={"/memo"} component={Memo} element={<Memo />} />
-                    {/* Send announcements to the student or classes */}
-                    <Route path={"/annonce"} component={Annonce} element={<Annonce />} />
                     {/* List of classes within the schools */}
-                    <Route path={"/classes"} component={Classe} element={<Classe />} />
+                    <Route path={"/classes"} component={ClassList} element={<ClassList />} />
                     {/* Application settings */}
                     <Route path={"/setting"} component={Setting} element={<Setting />} />
+                    {/* Application settings */}
+                    <Route path="/classes/:id/students" element={<StudentList />} />
                 </Routes>
-            </Container>
         </BrowserRouter>
     );
 }

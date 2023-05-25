@@ -8,7 +8,7 @@ import styled from 'styled-components'
  * @returns {JSX.Element}
  * @constructor
  */
-const Annonce = ({ placeholder, onChange }) => {
+const Ads = ({ placeholder, onChange }) => {
     return (
         <GlobalContainer>
             <Container>
@@ -125,4 +125,4 @@ const Input = styled.input`
   }
 `;
 
-export default Annonce;
+export default Ads;
