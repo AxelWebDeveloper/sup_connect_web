@@ -38,7 +38,7 @@ const Sidebar = () => {
                         </Item>
                         <Item>
                             <Icon><HiOutlineFolderOpen color={'#fff'} size={22} /></Icon>
-                            <NavLink to="/">
+                            <NavLink to="/Document">
                                 Documents
                             </NavLink>
                         </Item>
