@@ -250,21 +250,21 @@ const Item = styled.li`
   }
 `;
 
-const Icon = styled.div`
-  width: 30%;
-  display: flex;
-  justify-content: center;
-`;
-
 const NavLink = styled(Link)`
+  width: 100%;
   font-family: 'UrbanistRegular', sans-serif;
   transition: color 0.2s, background-color 0.2s;
   cursor: pointer;
   border-radius: 10px;
   font-size: 16.5px;
   color: #fff;
-  width: 70%;
   text-decoration: none;
+`;
+
+const Icon = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: center;
 `;
 
 const LogOut = styled.button`

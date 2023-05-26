@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import PopupAssiduite from "../../components/PopupAssiduite";
+import PopupAssiduite from "../../components/OCB/PopupAssiduite";
 import { useState } from "react";
 
 /**

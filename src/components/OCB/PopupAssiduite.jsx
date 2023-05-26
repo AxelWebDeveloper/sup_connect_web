@@ -1,7 +1,7 @@
 import React from 'react';
-import './Popup.css'
+import '../Popup.css'
 
-const PopupClasse = (props) => {
+const PopupAssiduite = (props) => {
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">
@@ -12,4 +12,6 @@ const PopupClasse = (props) => {
     ): "";
 };
 
-export default PopupClasse;
+
+
+export default PopupAssiduite;
