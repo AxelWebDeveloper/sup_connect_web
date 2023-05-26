@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import Form from "./Input";
 import axios from "axios";
-import PopupAssiduite from "../../components/PopupAssiduite";
+import PopupAssiduite from "../../components/OCB/PopupAssiduite";
 
 /**
  * Bloc-Note -> Ajout et gestion des mémo
